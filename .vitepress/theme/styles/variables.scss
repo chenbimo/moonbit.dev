@@ -1,0 +1,38 @@
+// 全局主题色变量
+:root {
+    // 主题色
+    --primary-color: #f0db4f;
+    --primary-dark: #d4c143;
+    --primary-light: #f5e66a;
+    --primary-alpha-10: rgba(240, 219, 79, 0.1);
+    --primary-alpha-20: rgba(240, 219, 79, 0.2);
+    --primary-alpha-30: rgba(240, 219, 79, 0.3);
+
+    // 辅助色
+    --secondary-color: #1e293b;
+    --accent-color: #3b82f6;
+
+    // 文字颜色
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+
+    // 背景色
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-muted: #f1f5f9;
+
+    // 边框色
+    --border-color: #e2e8f0;
+    --border-hover: var(--primary-color);
+
+    // 状态色
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --info-color: #3b82f6;
+
+    // 布局变量
+    --max-width: 1600px;
+    --container-padding: 2rem;
+}

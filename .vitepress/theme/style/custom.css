@@ -1,0 +1,71 @@
+:root {
+    /* 图标背景 */
+    --vp-home-hero-image-background-image: linear-gradient(135deg, #f6ceec 10%, #bdc1e7 100%);
+    --vp-home-hero-image-filter: blur(150px);
+    --vp-home-hero-name-color: #b60d16;
+    --vp-sidebar-width: 360px;
+    /* --vp-home-hero-name-color: #004eff;
+    --vp-button-brand-bg: #004eff;
+    --vp-button-brand-hover-bg: #004eff; */
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+body {
+}
+
+body a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.VPFeatures .details {
+    height: 56px;
+    overflow: hidden;
+}
+
+.VPFeatures .VPImage {
+    border-radius: 10px;
+}
+
+.VPHero .image-container {
+    margin-left: 32px;
+    margin-top: 32px;
+}
+.VPHero .image-container .image-src {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    max-width: none;
+    max-height: none;
+    border-radius: 6px;
+}
+
+@media (max-width: 960px) {
+    .VPHero .image {
+        margin-bottom: 40px !important;
+    }
+    .VPHero .image-container {
+        width: 100% !important;
+        margin-left: 0 !important;
+        height: 256px !important;
+    }
+}
+
+.vp-doc td {
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+.vp-doc table tr th:first-child {
+    min-width: 120px !important;
+}
+.vp-doc table tr th:last-child {
+    width: 100% !important;
+}
+.content-container img {
+    border: 2px solid #ddd;
+    border-radius: 2px;
+}

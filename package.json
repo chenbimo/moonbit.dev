@@ -1,0 +1,25 @@
+{
+    "name": "moonbit-dev",
+    "version": "1.0.0",
+    "author": "陈随易 <bimostyle@qq.com>",
+    "main": "index.js",
+    "access": "restricted",
+    "description": "MoonBit 开发网",
+    "type": "module",
+    "keywords": [],
+    "license": "ISC",
+    "private": true,
+    "publishConfig": {
+        "access": "restricted"
+    },
+    "scripts": {
+        "dev": "vitepress dev --mode=dev",
+        "build": "vitepress build --mode=prod"
+    },
+    "dependencies": {
+        "@yidocs/auto": "^2.1.2",
+        "@yidocs/vip": "^2.1.2",
+        "sass-embedded": "^1.89.2",
+        "vitepress": "^1.6.3"
+    }
+}
