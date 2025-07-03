@@ -12,14 +12,6 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "scripts": {
-        "dev": "vitepress dev --mode=dev",
-        "build": "vitepress build --mode=prod"
-    },
-    "dependencies": {
-        "@yidocs/auto": "^2.1.2",
-        "@yidocs/vip": "^2.1.2",
-        "sass-embedded": "^1.89.2",
-        "vitepress": "^1.6.3"
-    }
+    "scripts": {},
+    "dependencies": {}
 }
