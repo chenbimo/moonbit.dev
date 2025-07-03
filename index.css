@@ -4,13 +4,92 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    overflow: hidden;
+
+    /* 网格背景 */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: gridMove 20s linear infinite;
+        z-index: 1;
+    }
+
+    /* 代码符号装饰 */
+    &::after {
+        content: '{ } < > [ ] // /** */ => function class const let var';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        color: rgba(99, 102, 241, 0.1);
+        white-space: pre;
+        line-height: 3;
+        letter-spacing: 3px;
+        animation: codeFlow 30s linear infinite;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    /* 几何装饰图形 */
+    .geometric-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 15%;
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgba(99, 102, 241, 0.15);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 15%;
+            left: 10%;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(168, 85, 247, 0.15);
+            transform: rotate(45deg);
+            animation: float 15s ease-in-out infinite;
+        }
+    }
+
     .info {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
+
     .action {
         margin-top: 30px;
+        position: relative;
+        z-index: 10;
         .button {
             &.plugin {
                 background-color: var(--main-color);
@@ -127,5 +206,43 @@
                 }
             }
         }
+    }
+}
+
+/* 动画效果 */
+@keyframes gridMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+@keyframes codeFlow {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(45deg) translateY(-20px);
     }
 }
