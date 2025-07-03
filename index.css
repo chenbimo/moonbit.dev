@@ -95,12 +95,16 @@
         padding: 50px 60px;
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.2);
+
+        /* 入场动画 */
+        animation: fadeInUp 0.8s ease-out;
     }
 
     .action {
         margin-top: 40px;
         position: relative;
         z-index: 10;
+        animation: fadeInUp 0.6s ease-out 1s both;
 
         .button {
             &.plugin {
@@ -132,15 +136,38 @@
                     animation: shine 2s infinite;
                 }
 
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: translate(-50%, -50%);
+                    transition: width 0.3s, height 0.3s;
+                }
+
                 &:hover {
                     background: #b8256b;
                     transform: translateY(-2px);
                     box-shadow: 0 8px 25px rgba(208, 46, 144, 0.5);
+
+                    &::before {
+                        animation-duration: 0.8s;
+                    }
                 }
 
                 &:active {
                     transform: translateY(0);
                     box-shadow: 0 4px 15px rgba(208, 46, 144, 0.4);
+                }
+
+                /* 增强的按钮效果 */
+                &:active::after {
+                    width: 100px;
+                    height: 100px;
                 }
 
                 /* 焦点状态 */
@@ -174,6 +201,11 @@
             .logo {
                 height: 100px;
                 filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05) rotate(2deg);
+                }
             }
         }
 
@@ -182,6 +214,7 @@
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 8px;
+            animation: slideInRight 0.6s ease-out 0.2s both;
         }
 
         .author {
@@ -194,6 +227,13 @@
             border-radius: 20px;
             border: 1px solid rgba(208, 46, 144, 0.3);
             display: inline-block;
+            animation: slideInRight 0.6s ease-out 0.4s both;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(208, 46, 144, 0.2);
+            }
         }
 
         .describe {
@@ -205,6 +245,7 @@
                 color: #1e293b;
                 margin-bottom: 8px;
                 line-height: 1.3;
+                animation: slideInRight 0.6s ease-out 0.6s both;
             }
 
             .tips {
@@ -212,6 +253,7 @@
                 color: #64748b;
                 font-weight: 500;
                 letter-spacing: 1px;
+                animation: slideInRight 0.6s ease-out 0.8s both;
             }
         }
     }
@@ -231,14 +273,23 @@
             background: rgba(248, 250, 252, 0.8);
             border-radius: 16px;
             border: 1px solid rgba(226, 232, 240, 0.8);
+            animation: slideInLeft 0.6s ease-out 0.3s both;
 
             .row {
                 display: flex;
                 align-items: center;
                 margin-bottom: 30px;
+                transition: all 0.3s ease;
+                cursor: pointer;
 
                 &:last-of-type {
                     margin-bottom: 0;
+                }
+
+                &:hover {
+                    transform: translateX(5px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+                    background: rgba(255, 255, 255, 0.9);
                 }
 
                 .img {
@@ -251,6 +302,11 @@
                     border-radius: 12px;
                     padding: 8px;
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
 
                     .icon {
                         width: 32px;
@@ -295,6 +351,18 @@
                             background-color: #e2e8f0;
                             overflow: hidden;
                             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+                            position: relative;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                width: 0;
+                                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                                animation: barScan 3s ease-in-out infinite;
+                            }
 
                             .bar-inner {
                                 height: 100%;
@@ -302,9 +370,25 @@
                                 transition: all 0.4s ease;
                                 position: relative;
 
+                                /* 进度条动态增长效果 */
+                                transform-origin: left;
+                                animation: progressGrow 1.5s ease-out forwards;
+
                                 &.main {
                                     background: var(--main-color);
                                     box-shadow: 0 2px 8px rgba(208, 46, 144, 0.4);
+
+                                    /* 主色调进度条的额外效果 */
+                                    &::before {
+                                        content: '';
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.3) 70%, transparent 100%);
+                                        animation: progressShine 2.5s ease-in-out infinite;
+                                    }
                                 }
 
                                 &:not(.main) {
@@ -319,6 +403,8 @@
                             font-weight: 600;
                             color: #1e293b;
                             min-width: 80px;
+                            animation: countUp 1.8s ease-out forwards;
+                            opacity: 0;
                         }
                     }
                 }
@@ -520,12 +606,126 @@
     }
 }
 
+/* 新增动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes progressGrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes barScan {
+    0%,
+    100% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 30px;
+        left: calc(100% - 30px);
+    }
+}
+
+/* 优化现有动画 */
 @keyframes progressShine {
     0%,
     100% {
+        transform: translateX(-100%);
         opacity: 0;
     }
     50% {
+        transform: translateX(0);
         opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* 性能优化：为动画添加will-change */
+.logo,
+.bar-inner,
+.button.plugin {
+    will-change: transform;
+}
+
+/* 滚动优化 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 图片错误处理 */
+.logo,
+.icon {
+    &::after {
+        content: '🌙';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        display: none;
+    }
+
+    &[alt]:empty::after {
+        display: block;
     }
 }
