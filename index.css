@@ -94,7 +94,7 @@
 
         .button {
             &.plugin {
-                background: linear-gradient(135deg, var(--main-color) 0%, #e91e63 100%);
+                background: var(--main-color);
                 color: #fff;
                 height: 48px;
                 padding: 0 30px;
@@ -102,14 +102,22 @@
                 border-radius: 24px;
                 font-size: 16px;
                 font-weight: 600;
-                box-shadow: 0 8px 20px rgba(208, 46, 144, 0.3);
+                box-shadow: 0 4px 12px rgba(208, 46, 144, 0.3);
                 border: none;
                 cursor: pointer;
                 transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-block;
 
                 &:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 12px 30px rgba(208, 46, 144, 0.4);
+                    background: #b8256b;
+                    transform: translateY(-1px);
+                    box-shadow: 0 6px 16px rgba(208, 46, 144, 0.4);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 8px rgba(208, 46, 144, 0.3);
                 }
             }
         }
@@ -133,10 +141,7 @@
         .logo-name {
             font-size: 42px;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--main-color) 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #1e293b;
             margin-bottom: 8px;
         }
 
@@ -148,7 +153,7 @@
             padding: 8px 16px;
             background: rgba(208, 46, 144, 0.1);
             border-radius: 20px;
-            border: 1px solid rgba(208, 46, 144, 0.2);
+            border: 1px solid rgba(208, 46, 144, 0.3);
             display: inline-block;
         }
 
@@ -227,7 +232,7 @@
 
                     &:first-child .name {
                         color: var(--main-color);
-                        font-weight: 600;
+                        font-weight: 700;
                     }
 
                     .name {
@@ -235,7 +240,7 @@
                         text-align: right;
                         padding-right: 15px;
                         font-weight: 500;
-                        color: #475569;
+                        color: #334155;
                     }
 
                     .progress {
@@ -257,8 +262,8 @@
                                 transition: all 0.3s ease;
 
                                 &.main {
-                                    background: linear-gradient(90deg, var(--main-color) 0%, #e91e63 100%);
-                                    box-shadow: 0 2px 8px rgba(208, 46, 144, 0.3);
+                                    background: var(--main-color);
+                                    box-shadow: 0 1px 3px rgba(208, 46, 144, 0.3);
                                 }
 
                                 &:not(.main) {
@@ -271,7 +276,7 @@
                             padding-left: 12px;
                             font-size: 13px;
                             font-weight: 600;
-                            color: #374151;
+                            color: #1e293b;
                             min-width: 80px;
                         }
                     }
