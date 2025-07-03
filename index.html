@@ -16,7 +16,7 @@
     </head>
     <body>
         <main class="home-more">
-            <section class="banner" role="banner">
+            <section class="banner" role="banner" data-parallax="true">
                 <div class="geometric-bg" aria-hidden="true"></div>
                 <div class="info">
                     <div class="left">
@@ -33,7 +33,7 @@
                     <div class="space" aria-hidden="true"></div>
                     <div class="right">
                         <div class="compare" role="region" aria-label="性能对比图表">
-                            <div class="row">
+                            <div class="row" data-tooltip="运行时性能对比 - MoonBit表现优异">
                                 <div class="img">
                                     <img class="icon" src="/images/1.svg" alt="运行时性能" loading="lazy" />
                                 </div>
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" data-tooltip="文件大小对比 - MoonBit生成最小文件">
                                 <div class="img">
                                     <img class="icon" src="/images/2.svg" alt="文件大小" loading="lazy" />
                                 </div>
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" data-tooltip="编译时间对比 - MoonBit编译速度最快">
                                 <div class="img">
                                     <img class="icon" src="/images/3.svg" alt="总耗时" loading="lazy" />
                                 </div>
@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" data-tooltip="内存占用对比 - MoonBit内存效率最高">
                                 <div class="img">
                                     <img class="icon" src="/images/4.svg" alt="内存占用" loading="lazy" />
                                 </div>
@@ -164,12 +164,232 @@
                     </div>
                 </div>
                 <div class="action">
-                    <a href="#" class="button plugin" role="button" aria-label="下载MoonBit插件" tabindex="0"> 下载插件 </a>
+                    <a href="#" class="button plugin" role="button" aria-label="下载MoonBit插件" tabindex="0" data-magnetic="true"> 下载插件 </a>
                 </div>
             </section>
         </main>
 
         <script>
+            // 高级交互功能
+            document.addEventListener('DOMContentLoaded', function () {
+                const images = document.querySelectorAll('img');
+                images.forEach((img) => {
+                    img.addEventListener('error', function () {
+                        this.style.display = 'none';
+                    });
+
+                    img.addEventListener('load', function () {
+                        this.style.opacity = '1';
+                    });
+                });
+
+                // 进度条动画延迟启动
+                setTimeout(() => {
+                    document.querySelectorAll('.bar-inner').forEach((bar, index) => {
+                        bar.style.animationDelay = `${index * 0.1}s`;
+                    });
+                }, 500);
+
+                // 性能监控
+                if ('performance' in window) {
+                    window.addEventListener('load', () => {
+                        const navigation = performance.getEntriesByType('navigation')[0];
+                        console.log('页面加载时间:', navigation.loadEventEnd - navigation.fetchStart, 'ms');
+                    });
+                }
+
+                // 视差效果
+                const banner = document.querySelector('.banner[data-parallax="true"]');
+                if (banner && window.innerWidth > 768) {
+                    document.addEventListener('mousemove', (e) => {
+                        const { clientX, clientY } = e;
+                        const { innerWidth, innerHeight } = window;
+
+                        const xPercent = (clientX / innerWidth - 0.5) * 2;
+                        const yPercent = (clientY / innerHeight - 0.5) * 2;
+
+                        const geoBeforeElement = banner.querySelector('.geometric-bg');
+                        if (geoBeforeElement) {
+                            const style = geoBeforeElement.style;
+                            style.setProperty('--mouse-x', `${xPercent * 10}px`);
+                            style.setProperty('--mouse-y', `${yPercent * 10}px`);
+                        }
+
+                        const info = banner.querySelector('.info');
+                        if (info) {
+                            info.style.transform = `translate(${xPercent * 2}px, ${yPercent * 2}px)`;
+                        }
+                    });
+                }
+
+                // 磁性按钮效果
+                const magneticButton = document.querySelector('[data-magnetic="true"]');
+                if (magneticButton && window.innerWidth > 768) {
+                    magneticButton.addEventListener('mouseenter', function () {
+                        this.addEventListener('mousemove', magneticEffect);
+                    });
+
+                    magneticButton.addEventListener('mouseleave', function () {
+                        this.removeEventListener('mousemove', magneticEffect);
+                        this.style.transform = '';
+                    });
+
+                    function magneticEffect(e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+
+                        this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+                    }
+                }
+
+                // 进度条点击交互
+                document.querySelectorAll('.bar').forEach((bar) => {
+                    bar.addEventListener('click', function (e) {
+                        const rect = this.getBoundingClientRect();
+                        const clickPosition = (e.clientX - rect.left) / rect.width;
+                        const value = this.parentElement.parentElement.querySelector('.value').textContent;
+
+                        // 显示详细信息
+                        showProgressDetail(this, clickPosition, value);
+                    });
+                });
+
+                // 按钮状态管理
+                const downloadButton = document.querySelector('.button.plugin');
+                if (downloadButton) {
+                    downloadButton.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        // 添加加载状态
+                        this.classList.add('loading');
+                        this.textContent = '正在准备下载...';
+
+                        // 模拟下载过程
+                        setTimeout(() => {
+                            this.classList.remove('loading');
+                            this.classList.add('success');
+                            this.textContent = '下载成功！';
+
+                            // 恢复原始状态
+                            setTimeout(() => {
+                                this.classList.remove('success');
+                                this.textContent = '下载插件';
+                            }, 2000);
+                        }, 1500);
+
+                        // 添加点击波纹效果
+                        const ripple = document.createElement('span');
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height);
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+
+                        ripple.style.cssText = `
+                            position: absolute;
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${x}px;
+                            top: ${y}px;
+                            background: rgba(255,255,255,0.3);
+                            border-radius: 50%;
+                            transform: scale(0);
+                            animation: ripple 0.6s ease-out;
+                            pointer-events: none;
+                        `;
+
+                        this.appendChild(ripple);
+                        setTimeout(() => ripple.remove(), 600);
+                    });
+                }
+
+                // 数值动画计数器
+                function animateCounter(element, start, end, duration) {
+                    const startTime = Date.now();
+                    const range = end - start;
+
+                    function update() {
+                        const elapsed = Date.now() - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const current = start + range * easeOutQuart(progress);
+
+                        element.textContent = formatValue(current, element.dataset.unit || '');
+
+                        if (progress < 1) {
+                            requestAnimationFrame(update);
+                        }
+                    }
+
+                    update();
+                }
+
+                function easeOutQuart(t) {
+                    return 1 - Math.pow(1 - t, 4);
+                }
+
+                function formatValue(value, unit) {
+                    if (unit === 'ms') {
+                        return `${value.toFixed(1)}ms`;
+                    } else if (unit === 'bytes') {
+                        return value > 1000 ? `${(value / 1000).toFixed(0)},${(value % 1000).toFixed(0)} bytes` : `${value.toFixed(0)} bytes`;
+                    } else if (unit === 's') {
+                        return `${value.toFixed(2)} s`;
+                    } else if (unit === 'ns') {
+                        return `${value.toFixed(1)} ns`;
+                    }
+                    return value.toFixed(1);
+                }
+
+                function showProgressDetail(barElement, position, value) {
+                    const tooltip = document.createElement('div');
+                    tooltip.className = 'progress-tooltip';
+                    tooltip.textContent = `点击位置: ${(position * 100).toFixed(1)}% | 实际值: ${value}`;
+                    tooltip.style.cssText = `
+                        position: absolute;
+                        top: -30px;
+                        left: ${position * 100}%;
+                        transform: translateX(-50%);
+                        background: var(--text-primary);
+                        color: var(--background-primary);
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        white-space: nowrap;
+                        z-index: 1000;
+                        pointer-events: none;
+                    `;
+
+                    barElement.style.position = 'relative';
+                    barElement.appendChild(tooltip);
+
+                    setTimeout(() => tooltip.remove(), 2000);
+                }
+
+                // 键盘导航增强
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Tab') {
+                        document.body.classList.add('keyboard-navigation');
+                    }
+                });
+
+                document.addEventListener('mousedown', function () {
+                    document.body.classList.remove('keyboard-navigation');
+                });
+
+                // 性能监控增强
+                if ('PerformanceObserver' in window) {
+                    const observer = new PerformanceObserver((list) => {
+                        for (const entry of list.getEntries()) {
+                            if (entry.entryType === 'largest-contentful-paint') {
+                                console.log('LCP:', entry.startTime);
+                            }
+                        }
+                    });
+
+                    observer.observe({ entryTypes: ['largest-contentful-paint'] });
+                }
+            });
+
             // 图片加载错误处理
             document.addEventListener('DOMContentLoaded', function () {
                 const images = document.querySelectorAll('img');
@@ -233,6 +453,28 @@
                 to {
                     transform: scale(2);
                     opacity: 0;
+                }
+            }
+
+            /* 键盘导航状态 */
+            .keyboard-navigation *:focus {
+                outline: 3px solid var(--main-color) !important;
+                outline-offset: 2px !important;
+            }
+
+            /* 进度条工具提示 */
+            .progress-tooltip {
+                animation: tooltipFadeIn 0.3s ease-out;
+            }
+
+            @keyframes tooltipFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(-5px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
                 }
             }
         </style>

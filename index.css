@@ -69,6 +69,38 @@
     --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* 暗色模式支持 */
+    --bg-primary-dark: #0f172a;
+    --bg-secondary-dark: #1e293b;
+    --text-primary-dark: #f1f5f9;
+    --text-secondary-dark: #cbd5e1;
+
+    /* 数据可视化颜色 */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+}
+
+/* 暗色模式 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: var(--text-primary-dark);
+        --text-secondary: var(--text-secondary-dark);
+        --background-secondary: var(--bg-primary-dark);
+        --background-tertiary: var(--bg-secondary-dark);
+        --background-glass: rgba(15, 23, 42, 0.85);
+        --background-glass-strong: rgba(15, 23, 42, 0.95);
+    }
+
+    .banner::before {
+        background-image: linear-gradient(var(--main-color-alpha-medium) 1px, transparent 1px), linear-gradient(90deg, var(--main-color-alpha-medium) 1px, transparent 1px);
+    }
+
+    .banner::after {
+        color: var(--main-color-alpha-medium);
+    }
 }
 
 /* ==================== 基础重置和优化 ==================== */
@@ -207,11 +239,34 @@ body {
         display: flex;
         justify-content: flex-end;
         margin-bottom: var(--spacing-lg);
+        position: relative;
+
+        /* 添加光环效果 */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--main-color-alpha);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: logoHalo 3s ease-in-out infinite;
+        }
 
         .logo {
             height: 100px;
             filter: drop-shadow(0 4px 8px var(--shadow-light));
             transition: transform var(--duration-normal) var(--ease-bounce);
+            position: relative;
+            z-index: 2;
+
+            /* 添加加载完成后的弹入效果 */
+            &[src] {
+                animation: logoPopIn 0.6s var(--ease-bounce) 0.5s both;
+            }
 
             &:hover {
                 transform: scale(1.05) rotate(2deg);
@@ -239,10 +294,23 @@ body {
         display: inline-block;
         animation: slideInRight var(--duration-slow) var(--ease-out) 0.4s both;
         transition: all var(--duration-normal) var(--ease-out);
+        position: relative;
+        overflow: hidden;
 
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px var(--main-color-alpha);
+        /* 添加背景流光效果 */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        &:hover::before {
+            left: 100%;
         }
     }
 
@@ -296,6 +364,51 @@ body {
             padding: var(--spacing-xs);
             margin: -var(--spacing-xs);
             margin-bottom: calc(var(--spacing-2xl) - var(--spacing-xs));
+            position: relative;
+
+            /* 添加工具提示 */
+            &::before {
+                content: attr(data-tooltip);
+                position: absolute;
+                top: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--text-primary);
+                color: var(--background-primary);
+                padding: var(--spacing-xs) var(--spacing-sm);
+                border-radius: var(--radius-sm);
+                font-size: var(--font-size-xs);
+                white-space: nowrap;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity var(--duration-normal);
+                z-index: 1000;
+            }
+
+            &:hover::before {
+                opacity: 1;
+            }
+
+            /* 添加点击波纹效果 */
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                border-radius: 50%;
+                background: var(--main-color-alpha);
+                transform: translate(-50%, -50%);
+                pointer-events: none;
+                transition: all var(--duration-normal);
+            }
+
+            &:active::after {
+                width: 100%;
+                height: 100%;
+                opacity: 0.3;
+            }
 
             &:last-of-type {
                 margin-bottom: -var(--spacing-xs);
@@ -358,6 +471,7 @@ body {
                     flex: 1 1 100%;
                     display: flex;
                     align-items: center;
+                    cursor: pointer;
 
                     .bar {
                         height: 18px;
@@ -391,15 +505,18 @@ body {
                                 background: var(--main-color);
                                 box-shadow: 0 2px 8px var(--main-color-alpha-strong);
 
-                                &::before {
+                                /* 添加脉冲效果 */
+                                &::after {
                                     content: '';
                                     position: absolute;
                                     top: 0;
                                     left: 0;
                                     width: 100%;
                                     height: 100%;
-                                    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.3) 70%, transparent 100%);
-                                    animation: progressShine 2.5s ease-in-out infinite;
+                                    background: var(--main-color);
+                                    border-radius: inherit;
+                                    animation: pulse 2s ease-in-out infinite;
+                                    opacity: 0;
                                 }
                             }
 
@@ -417,6 +534,23 @@ body {
                         min-width: 80px;
                         animation: countUp 1.8s var(--ease-out) forwards;
                         opacity: 0;
+                        position: relative;
+
+                        /* 添加数值高亮效果 */
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            bottom: -2px;
+                            left: 0;
+                            width: 0;
+                            height: 2px;
+                            background: var(--main-color);
+                            transition: width var(--duration-normal);
+                        }
+
+                        &:hover::before {
+                            width: 100%;
+                        }
                     }
                 }
             }
@@ -507,7 +641,191 @@ body {
                 outline: 3px solid var(--main-color);
                 outline-offset: 2px;
             }
+
+            /* 添加磁性效果 */
+            &:hover {
+                // ...existing code...
+
+                /* 鼠标接近时的磁性偏移 */
+                @media (hover: hover) and (pointer: fine) {
+                    &[data-magnetic='true'] {
+                        transition: transform var(--duration-fast);
+                    }
+                }
+            }
+
+            /* 长按效果 */
+            &:active {
+                // ...existing code...
+                animation: buttonPress 0.1s ease-out;
+            }
+
+            /* 成功状态 */
+            &.success {
+                background: var(--color-success);
+
+                &::before {
+                    content: '✓';
+                    font-size: var(--font-size-lg);
+                    animation: none;
+                }
+            }
+
+            /* 加载状态 */
+            &.loading {
+                pointer-events: none;
+
+                &::before {
+                    content: '';
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid transparent;
+                    border-top: 2px solid currentColor;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                }
+            }
         }
+    }
+}
+
+/* ==================== 视差滚动效果 ==================== */
+@media (hover: hover) and (pointer: fine) {
+    .banner {
+        /* 鼠标视差效果 */
+        &[data-parallax='true'] {
+            .geometric-bg::before {
+                transition: transform 0.3s ease-out;
+            }
+
+            .geometric-bg::after {
+                transition: transform 0.3s ease-out;
+            }
+
+            .info {
+                transition: transform 0.2s ease-out;
+            }
+        }
+    }
+}
+
+/* ==================== 新增动画效果 ==================== */
+@keyframes logoHalo {
+    0%,
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+@keyframes logoPopIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes buttonPress {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==================== 减少动画偏好 ==================== */
+@media (prefers-reduced-motion: reduce) {
+    /* ...existing code... */
+
+    .banner::before,
+    .banner::after,
+    .geometric-bg::before,
+    .geometric-bg::after {
+        animation: none;
+    }
+
+    .logo:hover,
+    .author:hover,
+    .row:hover {
+        transform: none;
+    }
+}
+
+/* ==================== 高对比度模式 ==================== */
+@media (prefers-contrast: high) {
+    /* ...existing code... */
+
+    .bar-inner.main {
+        background: var(--main-color-dark) !important;
+        border: 2px solid var(--text-primary);
+    }
+
+    .button.plugin {
+        border: 2px solid var(--background-primary);
+    }
+}
+
+/* ==================== 打印样式 ==================== */
+@media print {
+    .banner {
+        height: auto;
+        background: white !important;
+        color: black !important;
+
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+
+    .geometric-bg {
+        display: none;
+    }
+
+    .info {
+        background: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .action {
+        display: none;
     }
 }
 
