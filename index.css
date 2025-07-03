@@ -1,3 +1,6 @@
+:root {
+    --main-color: #d02e90;
+}
 .banner {
     height: 100vh;
     display: flex;
@@ -277,19 +280,8 @@
                                 position: relative;
 
                                 &.main {
-                                    background: linear-gradient(90deg, var(--main-color) 0%, #e91e63 100%);
+                                    background: var(--main-color);
                                     box-shadow: 0 2px 8px rgba(208, 46, 144, 0.4);
-
-                                    &::after {
-                                        content: '';
-                                        position: absolute;
-                                        top: 0;
-                                        left: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
-                                        animation: progressShine 2s ease-in-out infinite;
-                                    }
                                 }
 
                                 &:not(.main) {
