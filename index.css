@@ -81,6 +81,11 @@
     --color-warning: #f59e0b;
     --color-error: #ef4444;
     --color-info: #3b82f6;
+
+    /* 简化科技感颜色 */
+    --tech-cyan: #00d4ff;
+    --tech-accent: rgba(0, 212, 255, 0.1);
+    --tech-glow: rgba(0, 212, 255, 0.2);
 }
 
 /* 暗色模式 */
@@ -152,13 +157,13 @@ body {
     }
 
     &::after {
-        content: '{ } < > [ ] // /** */ => function class const let var';
+        content: '{ } < > [ ] // /** */ => function class const let var import export interface type async await Promise';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        font-family: 'Courier New', monospace;
+        font-family: 'Courier New', 'SF Mono', 'Monaco', monospace;
         font-size: var(--font-size-base);
         color: var(--main-color-alpha);
         white-space: pre;
@@ -169,9 +174,22 @@ body {
         overflow: hidden;
         will-change: transform;
     }
+
+    /* 简化扫描线效果 */
+    .scan-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(0deg, transparent, transparent 4px, var(--tech-accent) 4px, var(--tech-accent) 5px);
+        z-index: 2;
+        pointer-events: none;
+        opacity: 0.3;
+    }
 }
 
-/* ==================== 几何背景装饰 ==================== */
+/* ==================== 几何背景装饰简化 ==================== */
 .geometric-bg {
     position: absolute;
     width: 100%;
@@ -205,9 +223,60 @@ body {
         animation: float 15s ease-in-out infinite, fadeInScale 1s var(--ease-out) 1s forwards;
         will-change: transform, opacity;
     }
+
+    /* 简化科技装饰元素 */
+    .tech-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.2;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--tech-cyan);
+            border-radius: 50%;
+            animation: pulse-ring 4s ease-in-out infinite;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 30%;
+            right: 20%;
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--main-color);
+            transform: rotate(45deg);
+            animation: float 6s ease-in-out infinite;
+        }
+    }
+
+    /* 简化六边形装饰 */
+    .hexagon {
+        position: absolute;
+        top: 60%;
+        left: 15%;
+        width: 40px;
+        height: 40px;
+        background: var(--main-color-alpha);
+        clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+        animation: float 8s ease-in-out infinite;
+        opacity: 0.2;
+    }
+
+    /* 移除复杂的电路线条 */
+    .circuit-lines {
+        display: none;
+    }
 }
 
-/* ==================== 主内容区域 ==================== */
+/* ==================== 主内容区域简化 ==================== */
 .info {
     display: flex;
     justify-content: center;
@@ -227,9 +296,29 @@ body {
     @supports not (backdrop-filter: blur(15px)) {
         background: var(--background-glass-strong);
     }
+
+    /* 简化边框光效 */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+        background: linear-gradient(45deg, var(--main-color-alpha), transparent, var(--tech-glow), transparent);
+        border-radius: var(--radius-2xl);
+        z-index: -1;
+        opacity: 0;
+        animation: borderGlow 6s ease-in-out infinite;
+    }
+
+    /* 移除数据流效果 */
+    .data-stream {
+        display: none;
+    }
 }
 
-/* ==================== 左侧内容区域 ==================== */
+/* ==================== 左侧内容区域简化 ==================== */
 .left {
     flex: 0 0 auto;
     text-align: right;
@@ -241,7 +330,7 @@ body {
         margin-bottom: var(--spacing-lg);
         position: relative;
 
-        /* 添加光环效果 */
+        /* 简化光环效果 */
         &::before {
             content: '';
             position: absolute;
@@ -253,7 +342,12 @@ body {
             border-radius: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
-            animation: logoHalo 3s ease-in-out infinite;
+            animation: logoHalo 6s ease-in-out infinite;
+        }
+
+        /* 移除第二个光环 */
+        &::after {
+            display: none;
         }
 
         .logo {
@@ -280,6 +374,14 @@ body {
         color: var(--text-primary);
         margin-bottom: var(--spacing-xs);
         animation: slideInRight var(--duration-slow) var(--ease-out) 0.2s both;
+
+        /* 简化发光文字效果 */
+        text-shadow: 0 0 10px var(--main-color-alpha-medium);
+
+        /* 移除打字机效果 */
+        &::after {
+            display: none;
+        }
     }
 
     .author {
@@ -297,7 +399,10 @@ body {
         position: relative;
         overflow: hidden;
 
-        /* 添加背景流光效果 */
+        /* 简化霓虹灯效果 */
+        box-shadow: 0 0 5px var(--main-color-alpha);
+
+        /* 简化背景流光效果 */
         &::before {
             content: '';
             position: absolute;
@@ -305,8 +410,8 @@ body {
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
         }
 
         &:hover::before {
@@ -340,7 +445,7 @@ body {
     flex: 0 0 var(--spacing-5xl);
 }
 
-/* ==================== 右侧对比图表区域 ==================== */
+/* ==================== 右侧对比图表区域简化 ==================== */
 .right {
     display: flex;
     justify-content: flex-start;
@@ -353,6 +458,20 @@ body {
         border-radius: var(--radius-lg);
         border: 1px solid var(--border-light);
         animation: slideInLeft var(--duration-slow) var(--ease-out) 0.3s both;
+
+        /* 简化全息效果 */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, var(--tech-accent) 50%, transparent 100%);
+            border-radius: var(--radius-lg);
+            opacity: 0;
+            animation: hologram 8s ease-in-out infinite;
+        }
 
         .row {
             display: flex;
@@ -436,6 +555,25 @@ body {
                     transform: scale(1.1);
                 }
 
+                /* 简化图标发光效果 */
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -1px;
+                    left: -1px;
+                    right: -1px;
+                    bottom: -1px;
+                    background: var(--main-color-alpha);
+                    border-radius: var(--radius-md);
+                    z-index: -1;
+                    opacity: 0;
+                    transition: opacity var(--duration-normal);
+                }
+
+                &:hover::before {
+                    opacity: 0.5;
+                }
+
                 .icon {
                     width: 32px;
                     height: 32px;
@@ -482,15 +620,8 @@ body {
                         box-shadow: inset 0 2px 4px var(--shadow-strong);
                         position: relative;
 
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            height: 100%;
-                            width: 0;
-                            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-                            animation: barScan 3s ease-in-out infinite;
+                        &::before {
+                            display: none;
                         }
 
                         .bar-inner {
@@ -505,18 +636,17 @@ body {
                                 background: var(--main-color);
                                 box-shadow: 0 2px 8px var(--main-color-alpha-strong);
 
-                                /* 添加脉冲效果 */
-                                &::after {
+                                /* 简化能量波效果 */
+                                &::before {
                                     content: '';
                                     position: absolute;
                                     top: 0;
                                     left: 0;
                                     width: 100%;
                                     height: 100%;
-                                    background: var(--main-color);
-                                    border-radius: inherit;
-                                    animation: pulse 2s ease-in-out infinite;
-                                    opacity: 0;
+                                    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+                                    animation: energyWave 3s ease-in-out infinite;
+                                    opacity: 0.7;
                                 }
                             }
 
@@ -536,20 +666,9 @@ body {
                         opacity: 0;
                         position: relative;
 
-                        /* 添加数值高亮效果 */
-                        &::before {
-                            content: '';
-                            position: absolute;
-                            bottom: -2px;
-                            left: 0;
-                            width: 0;
-                            height: 2px;
-                            background: var(--main-color);
-                            transition: width var(--duration-normal);
-                        }
-
-                        &:hover::before {
-                            width: 100%;
+                        /* 移除复杂的数字扫描效果 */
+                        &::after {
+                            display: none;
                         }
                     }
                 }
@@ -558,7 +677,7 @@ body {
     }
 }
 
-/* ==================== 操作按钮区域 ==================== */
+/* ==================== 操作按钮区域简化 ==================== */
 .action {
     margin-top: var(--spacing-3xl);
     position: relative;
@@ -592,30 +711,19 @@ body {
                 width: 100%;
                 height: 100%;
                 background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
-                animation: shine 2s infinite;
+                animation: shine 3s infinite;
             }
 
-            &::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 0;
-                height: 0;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.3);
-                transform: translate(-50%, -50%);
-                transition: width var(--duration-normal), height var(--duration-normal);
+            /* 移除外层光环效果 */
+            &:hover::before {
+                box-shadow: none;
             }
 
+            /* 简化按钮边框动画 */
             &:hover {
                 background: var(--main-color-dark);
                 transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(208, 46, 144, 0.5);
-
-                &::before {
-                    animation-duration: 0.8s;
-                }
+                box-shadow: 0 8px 25px var(--main-color-alpha-strong), 0 0 20px var(--main-color-alpha);
             }
 
             &:active {
@@ -644,8 +752,6 @@ body {
 
             /* 添加磁性效果 */
             &:hover {
-                // ...existing code...
-
                 /* 鼠标接近时的磁性偏移 */
                 @media (hover: hover) and (pointer: fine) {
                     &[data-magnetic='true'] {
@@ -656,7 +762,6 @@ body {
 
             /* 长按效果 */
             &:active {
-                // ...existing code...
                 animation: buttonPress 0.1s ease-out;
             }
 
@@ -709,7 +814,29 @@ body {
     }
 }
 
-/* ==================== 新增动画效果 ==================== */
+/* ==================== 简化科技动画效果 ==================== */
+@keyframes pulse-ring {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.2;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.4;
+    }
+}
+
+@keyframes borderGlow {
+    0%,
+    100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+}
+
 @keyframes logoHalo {
     0%,
     100% {
@@ -717,55 +844,27 @@ body {
         transform: translate(-50%, -50%) scale(1);
     }
     50% {
-        opacity: 0.3;
-        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(1.05);
     }
 }
 
-@keyframes logoPopIn {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes pulse {
+@keyframes hologram {
     0%,
     100% {
         opacity: 0;
-        transform: scale(1);
     }
     50% {
-        opacity: 0.3;
-        transform: scale(1.05);
+        opacity: 0.1;
     }
 }
 
-@keyframes buttonPress {
+@keyframes energyWave {
     0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.95);
+        transform: translateX(-100%);
     }
     100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+        transform: translateX(100%);
     }
 }
 
@@ -1067,6 +1166,84 @@ body {
     }
 }
 
+@keyframes progressGrow {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes barScan {
+    0%,
+    100% {
+        width: 0;
+        left: 0;
+    }
+    50% {
+        width: 30px;
+        left: calc(100% - 30px);
+    }
+}
+
+/* 优化现有动画 */
+@keyframes progressShine {
+    0%,
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* 性能优化：为动画添加will-change */
+.logo,
+.bar-inner,
+.button.plugin {
+    will-change: transform;
+}
+
+/* 滚动优化 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 图片错误处理 */
+.logo,
+.icon {
+    &::after {
+        content: '🌙';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        display: none;
+    }
+
+    &[alt]:empty::after {
+        display: block;
+    }
+}
 @keyframes progressGrow {
     from {
         transform: scaleX(0);

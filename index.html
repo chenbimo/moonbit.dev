@@ -13,11 +13,18 @@
         <link rel="preload" href="/images/2.svg" as="image" />
         <link rel="preload" href="/images/3.svg" as="image" />
         <link rel="preload" href="/images/4.svg" as="image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <main class="home-more">
             <section class="banner" role="banner" data-parallax="true">
-                <div class="geometric-bg" aria-hidden="true"></div>
+                <div class="scan-lines" aria-hidden="true"></div>
+                <div class="geometric-bg" aria-hidden="true">
+                    <div class="tech-elements"></div>
+                    <div class="hexagon"></div>
+                </div>
                 <div class="info">
                     <div class="left">
                         <div class="logo-wrap">
@@ -170,7 +177,6 @@
         </main>
 
         <script>
-            // 高级交互功能
             document.addEventListener('DOMContentLoaded', function () {
                 const images = document.querySelectorAll('img');
                 images.forEach((img) => {
@@ -375,19 +381,6 @@
                 document.addEventListener('mousedown', function () {
                     document.body.classList.remove('keyboard-navigation');
                 });
-
-                // 性能监控增强
-                if ('PerformanceObserver' in window) {
-                    const observer = new PerformanceObserver((list) => {
-                        for (const entry of list.getEntries()) {
-                            if (entry.entryType === 'largest-contentful-paint') {
-                                console.log('LCP:', entry.startTime);
-                            }
-                        }
-                    });
-
-                    observer.observe({ entryTypes: ['largest-contentful-paint'] });
-                }
             });
 
             // 图片加载错误处理
@@ -446,6 +439,37 @@
                 this.appendChild(ripple);
                 setTimeout(() => ripple.remove(), 600);
             });
+
+            // 简化科技效果 - 只保留基本的
+            if (window.innerWidth > 768) {
+                // 只保留简单的粒子效果
+                createSimpleParticles();
+            }
+
+            // 简化的粒子系统
+            function createSimpleParticles() {
+                const particleCount = 20; // 减少粒子数量
+
+                for(let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.style.cssText = `
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        background: var(--tech-cyan);
+                        border-radius: 50%;
+                        opacity: 0;
+                        z-index: 1;
+                        pointer-events: none;
+                    `;
+
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.animation = `particleFloat ${4 + Math.random() * 2}s ease-in-out infinite ${Math.random() * 3}s`;
+
+                    document.querySelector('.banner').appendChild(particle);
+                }
+            }
         </script>
 
         <style>
@@ -476,6 +500,164 @@
                     opacity: 1;
                     transform: translateX(-50%) translateY(0);
                 }
+            }
+
+            /* 简化粒子动画 */
+            @keyframes particleFloat {
+                0%, 100% {
+                    opacity: 0;
+                    transform: translateY(0) scale(0.5);
+                }
+                50% {
+                    opacity: 0.6;
+                    transform: translateY(-15px) scale(1);
+                }
+            }
+
+            /* 字体优化 */
+            .logo-name, .value {
+                font-family: 'JetBrains Mono', 'Courier New', monospace;
+            }
+        </style>
+    </body>
+</html>
+                        z-index: 1;
+                        pointer-events: none;
+                    `;
+
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                    particle.style.animation = `particleFloat ${3 + Math.random() * 2}s ease-in-out infinite ${Math.random() * 2}s`;
+
+                    document.querySelector('.banner').appendChild(particle);
+                    particles.push(particle);
+                }
+            }
+
+            // 添加科技感音效（可选）
+            function addTechSounds() {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+                function playBeep(frequency = 800, duration = 100) {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+
+                    oscillator.frequency.value = frequency;
+                    oscillator.type = 'sine';
+
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + duration / 1000);
+                }
+
+                // 为交互添加音效
+                document.querySelectorAll('.row').forEach(row => {
+                    row.addEventListener('mouseenter', () => playBeep(600, 50));
+                });
+
+                document.querySelector('.button.plugin')?.addEventListener('click', () => {
+                    playBeep(1000, 200);
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // 启用科技效果
+                if (window.innerWidth > 768) {
+                    createMatrixRain();
+                    createParticleSystem();
+
+                    // 用户首次交互后启用音效
+                    document.addEventListener('click', () => {
+                        addTechSounds();
+                    }, { once: true });
+                }
+
+                // 添加代码雨效果到背景
+                const codeRain = document.createElement('div');
+                codeRain.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    font-family: 'JetBrains Mono', monospace;
+                    font-size: 12px;
+                    color: rgba(0, 212, 255, 0.1);
+                    z-index: 1;
+                    pointer-events: none;
+                    overflow: hidden;
+                `;
+
+                const codes = ['const', 'let', 'function', 'async', 'await', 'import', 'export', 'class', 'interface', 'type'];
+
+                setInterval(() => {
+                    const span = document.createElement('span');
+                    span.textContent = codes[Math.floor(Math.random() * codes.length)];
+                    span.style.cssText = `
+                        position: absolute;
+                        left: ${Math.random() * 100}%;
+                        top: -20px;
+                        animation: matrixRain ${3 + Math.random() * 2}s linear forwards;
+                    `;
+                    codeRain.appendChild(span);
+
+                    setTimeout(() => span.remove(), 5000);
+                }, 500);
+
+                document.querySelector('.banner').appendChild(codeRain);
+            });
+        </script>
+
+        <style>
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+
+            /* 键盘导航状态 */
+            .keyboard-navigation *:focus {
+                outline: 3px solid var(--main-color) !important;
+                outline-offset: 2px !important;
+            }
+
+            /* 进度条工具提示 */
+            .progress-tooltip {
+                animation: tooltipFadeIn 0.3s ease-out;
+            }
+
+            @keyframes tooltipFadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(-5px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+
+            /* 新增粒子动画 */
+            @keyframes particleFloat {
+                0%, 100% {
+                    opacity: 0;
+                    transform: translateY(0) scale(0.5);
+                }
+                50% {
+                    opacity: 1;
+                    transform: translateY(-20px) scale(1);
+                }
+            }
+
+            /* 字体优化 */
+            .logo-name, .value, .author {
+                font-family: 'JetBrains Mono', 'Courier New', monospace;
             }
         </style>
     </body>
