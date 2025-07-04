@@ -13,9 +13,7 @@
         <link rel="preload" href="/images/2.svg" as="image" />
         <link rel="preload" href="/images/3.svg" as="image" />
         <link rel="preload" href="/images/4.svg" as="image" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <!-- 移除谷歌字体 -->
     </head>
     <body>
         <main class="home-more">
@@ -174,305 +172,165 @@
                     <a href="#" class="button plugin" role="button" aria-label="下载MoonBit插件" tabindex="0" data-magnetic="true"> 下载插件 </a>
                 </div>
             </section>
+
+            <!-- 功能特性区域 -->
+            <section class="features" id="features">
+                <div class="container">
+                    <h2 class="section-title">强大的功能特性</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>极速编译</h3>
+                            <p>基于增量编译技术，编译速度比传统语言快10倍以上，大幅提升开发效率</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>内存安全</h3>
+                            <p>内置垃圾回收器和所有权系统，从根本上消除内存泄漏和悬空指针等问题</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>多端支持</h3>
+                            <p>支持编译到WebAssembly、JavaScript、原生二进制等多种目标平台</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3>AI辅助开发</h3>
+                            <p>集成先进的AI代码补全和错误诊断，提供智能化的开发体验</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📦</div>
+                            <h3>模块化设计</h3>
+                            <p>优雅的模块系统和包管理，支持渐进式的项目开发和维护</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔧</div>
+                            <h3>开发工具链</h3>
+                            <p>完整的IDE支持、调试器、格式化工具等，提供一站式开发体验</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 文章区域 -->
+            <section class="articles" id="articles">
+                <div class="container">
+                    <h2 class="section-title">学习资源</h2>
+                    <div class="articles-grid">
+                        <article class="article-card">
+                            <div class="article-image">
+                                <div class="placeholder-image">📚</div>
+                            </div>
+                            <div class="article-content">
+                                <h3>MoonBit快速入门指南</h3>
+                                <p>从零开始学习MoonBit编程语言，包含基础语法、核心概念和最佳实践</p>
+                                <div class="article-meta">
+                                    <span class="article-type">教程</span>
+                                    <span class="article-time">30分钟阅读</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <div class="article-image">
+                                <div class="placeholder-image">🎥</div>
+                            </div>
+                            <div class="article-content">
+                                <h3>MoonBit性能优化技巧</h3>
+                                <p>深入了解MoonBit的性能特性，学习如何编写高效的代码</p>
+                                <div class="article-meta">
+                                    <span class="article-type">视频</span>
+                                    <span class="article-time">45分钟观看</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <div class="article-image">
+                                <div class="placeholder-image">🛠️</div>
+                            </div>
+                            <div class="article-content">
+                                <h3>构建Web应用实战</h3>
+                                <p>使用MoonBit构建现代Web应用，从项目搭建到生产部署</p>
+                                <div class="article-meta">
+                                    <span class="article-type">实战</span>
+                                    <span class="article-time">2小时学习</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="article-card">
+                            <div class="article-image">
+                                <div class="placeholder-image">🔬</div>
+                            </div>
+                            <div class="article-content">
+                                <h3>编译器原理解析</h3>
+                                <p>深入MoonBit编译器内部，了解其先进的编译技术和优化策略</p>
+                                <div class="article-meta">
+                                    <span class="article-type">深度</span>
+                                    <span class="article-time">1小时阅读</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="more-articles">
+                        <a href="#" class="button secondary">查看更多文章</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 底部区域 -->
+            <footer class="footer" id="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <div class="footer-logo">
+                                <img src="/images/logo.png" alt="MoonBit Logo" />
+                                <span>MoonBit</span>
+                            </div>
+                            <p class="footer-description">新一代AI云原生编程语言，快速、简单、可扩展。由ReScript作者张宏波老师倾力打造。</p>
+                        </div>
+                        <div class="footer-section">
+                            <h4>产品</h4>
+                            <ul>
+                                <li><a href="#">下载</a></li>
+                                <li><a href="#">文档</a></li>
+                                <li><a href="#">教程</a></li>
+                                <li><a href="#">示例</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>社区</h4>
+                            <ul>
+                                <li><a href="#">GitHub</a></li>
+                                <li><a href="#">论坛</a></li>
+                                <li><a href="#">Discord</a></li>
+                                <li><a href="#">Stack Overflow</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h4>关于</h4>
+                            <ul>
+                                <li><a href="#">团队</a></li>
+                                <li><a href="#">博客</a></li>
+                                <li><a href="#">新闻</a></li>
+                                <li><a href="#">联系我们</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2024 MoonBit. 保留所有权利。</p>
+                        <div class="footer-links">
+                            <a href="#">隐私政策</a>
+                            <a href="#">使用条款</a>
+                            <a href="#">Cookie政策</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </main>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const images = document.querySelectorAll('img');
-                images.forEach((img) => {
-                    img.addEventListener('error', function () {
-                        this.style.display = 'none';
-                    });
-
-                    img.addEventListener('load', function () {
-                        this.style.opacity = '1';
-                    });
-                });
-
-                // 进度条动画延迟启动
-                setTimeout(() => {
-                    document.querySelectorAll('.bar-inner').forEach((bar, index) => {
-                        bar.style.animationDelay = `${index * 0.1}s`;
-                    });
-                }, 500);
-
-                // 性能监控
-                if ('performance' in window) {
-                    window.addEventListener('load', () => {
-                        const navigation = performance.getEntriesByType('navigation')[0];
-                        console.log('页面加载时间:', navigation.loadEventEnd - navigation.fetchStart, 'ms');
-                    });
-                }
-
-                // 视差效果
-                const banner = document.querySelector('.banner[data-parallax="true"]');
-                if (banner && window.innerWidth > 768) {
-                    document.addEventListener('mousemove', (e) => {
-                        const { clientX, clientY } = e;
-                        const { innerWidth, innerHeight } = window;
-
-                        const xPercent = (clientX / innerWidth - 0.5) * 2;
-                        const yPercent = (clientY / innerHeight - 0.5) * 2;
-
-                        const geoBeforeElement = banner.querySelector('.geometric-bg');
-                        if (geoBeforeElement) {
-                            const style = geoBeforeElement.style;
-                            style.setProperty('--mouse-x', `${xPercent * 10}px`);
-                            style.setProperty('--mouse-y', `${yPercent * 10}px`);
-                        }
-
-                        const info = banner.querySelector('.info');
-                        if (info) {
-                            info.style.transform = `translate(${xPercent * 2}px, ${yPercent * 2}px)`;
-                        }
-                    });
-                }
-
-                // 磁性按钮效果
-                const magneticButton = document.querySelector('[data-magnetic="true"]');
-                if (magneticButton && window.innerWidth > 768) {
-                    magneticButton.addEventListener('mouseenter', function () {
-                        this.addEventListener('mousemove', magneticEffect);
-                    });
-
-                    magneticButton.addEventListener('mouseleave', function () {
-                        this.removeEventListener('mousemove', magneticEffect);
-                        this.style.transform = '';
-                    });
-
-                    function magneticEffect(e) {
-                        const rect = this.getBoundingClientRect();
-                        const x = e.clientX - rect.left - rect.width / 2;
-                        const y = e.clientY - rect.top - rect.height / 2;
-
-                        this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-                    }
-                }
-
-                // 进度条点击交互
-                document.querySelectorAll('.bar').forEach((bar) => {
-                    bar.addEventListener('click', function (e) {
-                        const rect = this.getBoundingClientRect();
-                        const clickPosition = (e.clientX - rect.left) / rect.width;
-                        const value = this.parentElement.parentElement.querySelector('.value').textContent;
-
-                        // 显示详细信息
-                        showProgressDetail(this, clickPosition, value);
-                    });
-                });
-
-                // 按钮状态管理
-                const downloadButton = document.querySelector('.button.plugin');
-                if (downloadButton) {
-                    downloadButton.addEventListener('click', function (e) {
-                        e.preventDefault();
-
-                        // 添加加载状态
-                        this.classList.add('loading');
-                        this.textContent = '正在准备下载...';
-
-                        // 模拟下载过程
-                        setTimeout(() => {
-                            this.classList.remove('loading');
-                            this.classList.add('success');
-                            this.textContent = '下载成功！';
-
-                            // 恢复原始状态
-                            setTimeout(() => {
-                                this.classList.remove('success');
-                                this.textContent = '下载插件';
-                            }, 2000);
-                        }, 1500);
-
-                        // 添加点击波纹效果
-                        const ripple = document.createElement('span');
-                        const rect = this.getBoundingClientRect();
-                        const size = Math.max(rect.width, rect.height);
-                        const x = e.clientX - rect.left - size / 2;
-                        const y = e.clientY - rect.top - size / 2;
-
-                        ripple.style.cssText = `
-                            position: absolute;
-                            width: ${size}px;
-                            height: ${size}px;
-                            left: ${x}px;
-                            top: ${y}px;
-                            background: rgba(255,255,255,0.3);
-                            border-radius: 50%;
-                            transform: scale(0);
-                            animation: ripple 0.6s ease-out;
-                            pointer-events: none;
-                        `;
-
-                        this.appendChild(ripple);
-                        setTimeout(() => ripple.remove(), 600);
-                    });
-                }
-
-                // 数值动画计数器
-                function animateCounter(element, start, end, duration) {
-                    const startTime = Date.now();
-                    const range = end - start;
-
-                    function update() {
-                        const elapsed = Date.now() - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const current = start + range * easeOutQuart(progress);
-
-                        element.textContent = formatValue(current, element.dataset.unit || '');
-
-                        if (progress < 1) {
-                            requestAnimationFrame(update);
-                        }
-                    }
-
-                    update();
-                }
-
-                function easeOutQuart(t) {
-                    return 1 - Math.pow(1 - t, 4);
-                }
-
-                function formatValue(value, unit) {
-                    if (unit === 'ms') {
-                        return `${value.toFixed(1)}ms`;
-                    } else if (unit === 'bytes') {
-                        return value > 1000 ? `${(value / 1000).toFixed(0)},${(value % 1000).toFixed(0)} bytes` : `${value.toFixed(0)} bytes`;
-                    } else if (unit === 's') {
-                        return `${value.toFixed(2)} s`;
-                    } else if (unit === 'ns') {
-                        return `${value.toFixed(1)} ns`;
-                    }
-                    return value.toFixed(1);
-                }
-
-                function showProgressDetail(barElement, position, value) {
-                    const tooltip = document.createElement('div');
-                    tooltip.className = 'progress-tooltip';
-                    tooltip.textContent = `点击位置: ${(position * 100).toFixed(1)}% | 实际值: ${value}`;
-                    tooltip.style.cssText = `
-                        position: absolute;
-                        top: -30px;
-                        left: ${position * 100}%;
-                        transform: translateX(-50%);
-                        background: var(--text-primary);
-                        color: var(--background-primary);
-                        padding: 4px 8px;
-                        border-radius: 4px;
-                        font-size: 12px;
-                        white-space: nowrap;
-                        z-index: 1000;
-                        pointer-events: none;
-                    `;
-
-                    barElement.style.position = 'relative';
-                    barElement.appendChild(tooltip);
-
-                    setTimeout(() => tooltip.remove(), 2000);
-                }
-
-                // 键盘导航增强
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Tab') {
-                        document.body.classList.add('keyboard-navigation');
-                    }
-                });
-
-                document.addEventListener('mousedown', function () {
-                    document.body.classList.remove('keyboard-navigation');
-                });
-            });
-
-            // 图片加载错误处理
-            document.addEventListener('DOMContentLoaded', function () {
-                const images = document.querySelectorAll('img');
-                images.forEach((img) => {
-                    img.addEventListener('error', function () {
-                        this.style.display = 'none';
-                    });
-
-                    img.addEventListener('load', function () {
-                        this.style.opacity = '1';
-                    });
-                });
-
-                // 进度条动画延迟启动
-                setTimeout(() => {
-                    document.querySelectorAll('.bar-inner').forEach((bar, index) => {
-                        bar.style.animationDelay = `${index * 0.1}s`;
-                    });
-                }, 500);
-
-                // 性能监控
-                if ('performance' in window) {
-                    window.addEventListener('load', () => {
-                        const navigation = performance.getEntriesByType('navigation')[0];
-                        console.log('页面加载时间:', navigation.loadEventEnd - navigation.fetchStart, 'ms');
-                    });
-                }
-            });
-
-            // 按钮点击效果
-            document.querySelector('.button.plugin')?.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                // 添加点击波纹效果
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255,255,255,0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s ease-out;
-                    pointer-events: none;
-                `;
-
-                this.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            });
-
-            // 简化科技效果 - 只保留基本的
-            if (window.innerWidth > 768) {
-                // 只保留简单的粒子效果
-                createSimpleParticles();
-            }
-
-            // 简化的粒子系统
-            function createSimpleParticles() {
-                const particleCount = 20; // 减少粒子数量
-
-                for (let i = 0; i < particleCount; i++) {
-                    const particle = document.createElement('div');
-                    particle.style.cssText = `
-                        position: absolute;
-                        width: 1px;
-                        height: 1px;
-                        background: var(--tech-cyan);
-                        border-radius: 50%;
-                        opacity: 0;
-                        z-index: 1;
-                        pointer-events: none;
-                    `;
-
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.top = Math.random() * 100 + '%';
-                    particle.style.animation = `particleFloat ${4 + Math.random() * 2}s ease-in-out infinite ${Math.random() * 3}s`;
-
-                    document.querySelector('.banner').appendChild(particle);
-                }
-            }
-        </script>
+        <script src="/index.js"></script>
 
         <style>
+            /* 波纹动画 */
             @keyframes ripple {
                 to {
                     transform: scale(2);
@@ -480,10 +338,34 @@
                 }
             }
 
+            /* 粒子动画 */
+            @keyframes particleFloat {
+                0%,
+                100% {
+                    opacity: 0;
+                    transform: translateY(0) scale(0.5);
+                }
+                50% {
+                    opacity: 0.6;
+                    transform: translateY(-20px) scale(1);
+                }
+            }
+
             /* 键盘导航状态 */
             .keyboard-navigation *:focus {
                 outline: 3px solid var(--main-color) !important;
                 outline-offset: 2px !important;
+            }
+
+            /* 页面隐藏状态优化 */
+            .page-hidden * {
+                animation-play-state: paused !important;
+            }
+
+            /* 无动画支持的后备样式 */
+            .no-animations * {
+                animation: none !important;
+                transition: none !important;
             }
 
             /* 进度条工具提示 */
@@ -502,23 +384,37 @@
                 }
             }
 
-            /* 简化粒子动画 */
-            @keyframes particleFloat {
-                0%,
-                100% {
-                    opacity: 0;
-                    transform: translateY(0) scale(0.5);
-                }
-                50% {
-                    opacity: 0.6;
-                    transform: translateY(-15px) scale(1);
+            /* 按钮加载状态 */
+            .button.loading::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                border: 2px solid transparent;
+                border-top: 2px solid currentColor;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+                display: inline-block;
+                margin-right: 8px;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
                 }
             }
 
-            /* 字体优化 */
-            .logo-name,
-            .value {
-                font-family: 'JetBrains Mono', 'Courier New', monospace;
+            /* 成功状态 */
+            .button.success {
+                background: var(--color-success) !important;
+            }
+
+            .button.success::before {
+                content: '✓ ';
+                animation: none;
+                border: none;
+                width: auto;
+                height: auto;
+                margin-right: 4px;
             }
         </style>
     </body>
