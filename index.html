@@ -212,66 +212,151 @@
                 </div>
             </section>
 
-            <!-- 文章区域 -->
+            <!-- 文章教程区域 -->
             <section class="articles" id="articles">
                 <div class="container">
-                    <h2 class="section-title">学习资源</h2>
-                    <div class="articles-grid">
-                        <article class="article-card">
+                    <h2 class="section-title">文章教程</h2>
+                    <div class="articles-horizontal">
+                        <article class="article-horizontal">
                             <div class="article-image">
                                 <div class="placeholder-image">📚</div>
                             </div>
                             <div class="article-content">
-                                <h3>MoonBit快速入门指南</h3>
-                                <p>从零开始学习MoonBit编程语言，包含基础语法、核心概念和最佳实践</p>
-                                <div class="article-meta">
-                                    <span class="article-type">教程</span>
-                                    <span class="article-time">30分钟阅读</span>
+                                <div class="article-header">
+                                    <h3>MoonBit快速入门指南</h3>
+                                    <div class="article-meta">
+                                        <span class="article-type">基础教程</span>
+                                        <span class="article-time">30分钟阅读</span>
+                                    </div>
+                                </div>
+                                <p>从零开始学习MoonBit编程语言，包含基础语法、核心概念和最佳实践。本教程将带你逐步掌握MoonBit的核心特性，包括变量声明、函数定义、模式匹配等重要概念。</p>
+                                <div class="article-tags">
+                                    <span class="tag">初学者</span>
+                                    <span class="tag">语法基础</span>
+                                    <span class="tag">实践指南</span>
                                 </div>
                             </div>
                         </article>
-                        <article class="article-card">
-                            <div class="article-image">
-                                <div class="placeholder-image">🎥</div>
-                            </div>
-                            <div class="article-content">
-                                <h3>MoonBit性能优化技巧</h3>
-                                <p>深入了解MoonBit的性能特性，学习如何编写高效的代码</p>
-                                <div class="article-meta">
-                                    <span class="article-type">视频</span>
-                                    <span class="article-time">45分钟观看</span>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-card">
-                            <div class="article-image">
-                                <div class="placeholder-image">🛠️</div>
-                            </div>
-                            <div class="article-content">
-                                <h3>构建Web应用实战</h3>
-                                <p>使用MoonBit构建现代Web应用，从项目搭建到生产部署</p>
-                                <div class="article-meta">
-                                    <span class="article-type">实战</span>
-                                    <span class="article-time">2小时学习</span>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="article-card">
+                        
+                        <article class="article-horizontal reverse">
                             <div class="article-image">
                                 <div class="placeholder-image">🔬</div>
                             </div>
                             <div class="article-content">
-                                <h3>编译器原理解析</h3>
-                                <p>深入MoonBit编译器内部，了解其先进的编译技术和优化策略</p>
-                                <div class="article-meta">
-                                    <span class="article-type">深度</span>
-                                    <span class="article-time">1小时阅读</span>
+                                <div class="article-header">
+                                    <h3>编译器原理解析</h3>
+                                    <div class="article-meta">
+                                        <span class="article-type">深度解析</span>
+                                        <span class="article-time">1小时阅读</span>
+                                    </div>
+                                </div>
+                                <p>深入MoonBit编译器内部，了解其先进的编译技术和优化策略。探索增量编译、类型推断、代码生成等核心技术，理解MoonBit如何实现卓越的性能。</p>
+                                <div class="article-tags">
+                                    <span class="tag">高级</span>
+                                    <span class="tag">编译器</span>
+                                    <span class="tag">技术原理</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="article-horizontal">
+                            <div class="article-image">
+                                <div class="placeholder-image">🛠️</div>
+                            </div>
+                            <div class="article-content">
+                                <div class="article-header">
+                                    <h3>构建Web应用实战</h3>
+                                    <div class="article-meta">
+                                        <span class="article-type">实战项目</span>
+                                        <span class="article-time">2小时学习</span>
+                                    </div>
+                                </div>
+                                <p>使用MoonBit构建现代Web应用，从项目搭建到生产部署。学习如何利用MoonBit的WebAssembly编译能力，创建高性能的前端应用。</p>
+                                <div class="article-tags">
+                                    <span class="tag">实战</span>
+                                    <span class="tag">Web开发</span>
+                                    <span class="tag">WebAssembly</span>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <div class="more-articles">
                         <a href="#" class="button secondary">查看更多文章</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视频教程区域 -->
+            <section class="videos" id="videos">
+                <div class="container">
+                    <h2 class="section-title">视频教程</h2>
+                    <div class="videos-grid">
+                        <article class="video-card">
+                            <div class="video-thumbnail">
+                                <div class="placeholder-video">🎥</div>
+                                <div class="video-duration">45:30</div>
+                                <div class="play-button">▶️</div>
+                            </div>
+                            <div class="video-content">
+                                <h3>MoonBit性能优化技巧</h3>
+                                <p>深入了解MoonBit的性能特性，学习如何编写高效的代码</p>
+                                <div class="video-meta">
+                                    <span class="video-views">1.2k 观看</span>
+                                    <span class="video-date">2024-12-15</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="video-card">
+                            <div class="video-thumbnail">
+                                <div class="placeholder-video">🎯</div>
+                                <div class="video-duration">28:45</div>
+                                <div class="play-button">▶️</div>
+                            </div>
+                            <div class="video-content">
+                                <h3>函数式编程入门</h3>
+                                <p>掌握MoonBit的函数式编程特性，提升代码质量和开发效率</p>
+                                <div class="video-meta">
+                                    <span class="video-views">856 观看</span>
+                                    <span class="video-date">2024-12-10</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="video-card">
+                            <div class="video-thumbnail">
+                                <div class="placeholder-video">�</div>
+                                <div class="video-duration">52:20</div>
+                                <div class="play-button">▶️</div>
+                            </div>
+                            <div class="video-content">
+                                <h3>项目实战：构建计算器</h3>
+                                <p>从零开始构建一个完整的计算器应用，实践MoonBit开发流程</p>
+                                <div class="video-meta">
+                                    <span class="video-views">2.3k 观看</span>
+                                    <span class="video-date">2024-12-05</span>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="video-card">
+                            <div class="video-thumbnail">
+                                <div class="placeholder-video">🔧</div>
+                                <div class="video-duration">35:15</div>
+                                <div class="play-button">▶️</div>
+                            </div>
+                            <div class="video-content">
+                                <h3>开发环境配置详解</h3>
+                                <p>详细讲解如何配置MoonBit开发环境，包括编辑器插件和调试工具</p>
+                                <div class="video-meta">
+                                    <span class="video-views">1.8k 观看</span>
+                                    <span class="video-date">2024-12-01</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="more-videos">
+                        <a href="#" class="button secondary">查看更多视频</a>
                     </div>
                 </div>
             </section>

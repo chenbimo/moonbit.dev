@@ -5,11 +5,17 @@ document.addEventListener('DOMContentLoaded', function () {
     initPerformanceMonitoring();
     initParallaxEffects();
     initMagneticButton();
-    initProgressBarInteractions();
+    initProgressBa    // 观察所有需要动画的元素
+    document.querySelectorAll('.feature-card, .article-card, .article-horizontal, .video-card, .section-title').forEach(el => {
+        observer.observe(el);
+    });eractions();
     initButtonEffects();
     initIntersectionObserver();
     initSmoothScrolling();
     initParticleEffects();
+    initArticleAndVideoInteractions();
+    initVideoThumbnailEffects();
+    initProgressiveImageLoading();
 });
 
 // 图片加载错误处理
@@ -376,6 +382,111 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// 文章和视频卡片点击事件
+function initArticleAndVideoInteractions() {
+    // 横向文章卡片点击事件
+    const articleCards = document.querySelectorAll('.article-horizontal');
+    articleCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            console.log('点击文章:', title);
+            // 这里可以添加文章跳转逻辑
+        });
+        
+        // 添加键盘支持
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+
+    // 视频卡片点击事件
+    const videoCards = document.querySelectorAll('.video-card');
+    videoCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const title = this.querySelector('h3').textContent;
+            console.log('点击视频:', title);
+            // 这里可以添加视频播放逻辑
+            
+            // 模拟播放效果
+            const playButton = this.querySelector('.play-button');
+            if (playButton) {
+                playButton.textContent = '⏸️';
+                setTimeout(() => {
+                    playButton.textContent = '▶️';
+                }, 2000);
+            }
+        });
+        
+        // 添加键盘支持
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+
+    // 标签点击事件
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', function(e) {
+            e.stopPropagation(); // 防止冒泡到父元素
+            const tagText = this.textContent;
+            console.log('点击标签:', tagText);
+            // 这里可以添加标签筛选逻辑
+        });
+    });
+}
+
+// 视频缩略图悬停效果
+function initVideoThumbnailEffects() {
+    const videoThumbnails = document.querySelectorAll('.video-thumbnail');
+    
+    videoThumbnails.forEach(thumbnail => {
+        let hoverTimer;
+        
+        thumbnail.addEventListener('mouseenter', function() {
+            // 延迟显示播放按钮
+            hoverTimer = setTimeout(() => {
+                const playButton = this.querySelector('.play-button');
+                if (playButton) {
+                    playButton.style.opacity = '1';
+                    playButton.style.transform = 'translate(-50%, -50%) scale(1)';
+                }
+            }, 200);
+        });
+        
+        thumbnail.addEventListener('mouseleave', function() {
+            clearTimeout(hoverTimer);
+            const playButton = this.querySelector('.play-button');
+            if (playButton) {
+                playButton.style.opacity = '0';
+                playButton.style.transform = 'translate(-50%, -50%) scale(0.8)';
+            }
+        });
+    });
+}
+
+// 文章图片渐进加载效果
+function initProgressiveImageLoading() {
+    const articleImages = document.querySelectorAll('.article-image, .video-thumbnail');
+    
+    articleImages.forEach(imageContainer => {
+        const placeholder = imageContainer.querySelector('.placeholder-image, .placeholder-video');
+        if (placeholder) {
+            // 模拟图片加载
+            setTimeout(() => {
+                imageContainer.classList.add('loaded');
+            }, Math.random() * 1000 + 500);
+        }
+    });
+}
 
 // 防抖函数 - 优化性能
 function debounce(func, wait) {
