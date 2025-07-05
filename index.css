@@ -64,7 +64,7 @@ body::after {
         }
 
         .name {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
