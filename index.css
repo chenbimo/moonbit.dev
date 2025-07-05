@@ -1,5 +1,6 @@
 :root {
     --main-color: #d02e90;
+    --bg-color: #282c34;
 }
 
 * {
@@ -8,7 +9,9 @@
     margin: 0;
     outline: 0;
 }
-
+body {
+    background-color: var(--bg-color);
+}
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -19,6 +22,7 @@
     display: flex;
     align-items: center;
     height: 100vh;
+
     .info {
         flex: 0 0 50%;
         .logo {
