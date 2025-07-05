@@ -47,7 +47,7 @@ body::after {
     display: flex;
     position: relative;
 }
-.banner {
+.level-1 {
     display: flex;
     align-items: center;
     min-height: 100vh;
@@ -354,7 +354,7 @@ body::after {
 }
 
 /* 动态光影效果 */
-.banner .light-effects {
+.level-1 .light-effects {
     position: absolute;
     top: 0;
     left: 0;
@@ -364,7 +364,7 @@ body::after {
     z-index: -1;
 }
 
-.banner .light-effects::before {
+.level-1 .light-effects::before {
     content: '';
     position: absolute;
     top: 20%;
@@ -375,7 +375,7 @@ body::after {
     border-radius: 50%;
 }
 
-.banner .light-effects::after {
+.level-1 .light-effects::after {
     content: '';
     position: absolute;
     bottom: 25%;
