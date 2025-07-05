@@ -337,10 +337,7 @@ body::after {
     height: 100%;
     pointer-events: none;
     z-index: -2;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(100, 181, 246, 0.008) 1px, transparent 1px),
-        radial-gradient(circle at 80% 70%, rgba(255, 183, 77, 0.008) 1px, transparent 1px),
-        radial-gradient(circle at 40% 80%, rgba(208, 46, 144, 0.008) 1px, transparent 1px);
+    background-image: radial-gradient(circle at 20% 30%, rgba(100, 181, 246, 0.008) 1px, transparent 1px), radial-gradient(circle at 80% 70%, rgba(255, 183, 77, 0.008) 1px, transparent 1px), radial-gradient(circle at 40% 80%, rgba(208, 46, 144, 0.008) 1px, transparent 1px);
     background-size: 50px 50px, 70px 70px, 90px 90px;
 }
 
@@ -576,10 +573,7 @@ body .cosmic-layer-1 {
     height: 100vh;
     pointer-events: none;
     z-index: -3;
-    background: 
-        radial-gradient(ellipse at 15% 25%, rgba(100, 181, 246, 0.005) 40%, transparent 60%),
-        radial-gradient(ellipse at 85% 75%, rgba(255, 183, 77, 0.005) 40%, transparent 60%),
-        radial-gradient(ellipse at 50% 50%, rgba(208, 46, 144, 0.003) 50%, transparent 70%);
+    background: radial-gradient(ellipse at 15% 25%, rgba(100, 181, 246, 0.005) 40%, transparent 60%), radial-gradient(ellipse at 85% 75%, rgba(255, 183, 77, 0.005) 40%, transparent 60%), radial-gradient(ellipse at 50% 50%, rgba(208, 46, 144, 0.003) 50%, transparent 70%);
 }
 
 /* 边缘装饰 */
@@ -624,10 +618,6 @@ body .edge-decorations::after {
     height: 100%;
     pointer-events: none;
     z-index: -1;
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(100, 181, 246, 0.01) 1px, transparent 1px),
-        radial-gradient(circle at 75% 25%, rgba(255, 183, 77, 0.01) 1px, transparent 1px),
-        radial-gradient(circle at 25% 75%, rgba(208, 46, 144, 0.01) 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, rgba(100, 181, 246, 0.005) 1px, transparent 1px);
+    background-image: radial-gradient(circle at 25% 25%, rgba(100, 181, 246, 0.01) 1px, transparent 1px), radial-gradient(circle at 75% 25%, rgba(255, 183, 77, 0.01) 1px, transparent 1px), radial-gradient(circle at 25% 75%, rgba(208, 46, 144, 0.01) 1px, transparent 1px), radial-gradient(circle at 75% 75%, rgba(100, 181, 246, 0.005) 1px, transparent 1px);
     background-size: 40px 40px, 60px 60px, 80px 80px, 100px 100px;
 }
