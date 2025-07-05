@@ -34,25 +34,27 @@ body {
             font-size: 24px;
             font-weight: bold;
             margin: 10px 0;
+            color: #ffffff;
         }
         .author {
             font-size: 18px;
-            color: #666;
+            color: #b0b0b0;
         }
         .describe {
             font-size: 16px;
-            color: #333;
+            color: #e0e0e0;
             margin-top: 10px;
         }
         .features {
             margin-top: 20px;
             font-size: 16px;
-            color: #333;
+            color: #d0d0d0;
         }
     }
     .performance {
         flex: 0 0 50%;
         font-size: 14px;
+        color: #e0e0e0;
         .row {
             margin-bottom: 20px;
             &:last-of-type {
@@ -70,7 +72,7 @@ body {
             align-items: center;
             justify-content: center;
             flex: 0 0 50px;
-            background-color: #eee;
+            background-color: #3a3f47;
             margin-right: 10px;
             border-radius: 6px;
         }
@@ -87,7 +89,7 @@ body {
         .progress {
             width: 200px;
             height: 14px;
-            background-color: #eee;
+            background-color: #3a3f47;
             border-radius: 4px;
         }
         .bar {
@@ -102,7 +104,7 @@ body {
         }
         .tips {
             font-size: 13px;
-            color: #666;
+            color: #999;
             margin-top: 4px;
             padding-left: 140px;
         }
