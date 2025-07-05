@@ -1203,13 +1203,12 @@ body .corner-decoration-4 {
 
 /* 按钮容器样式 */
 .btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     margin: 40px auto 0;
-    flex-wrap: nowrap;
+    max-width: 800px;
+    justify-items: center;
 }
 
 /* 下载按钮样式 - 简洁设计 */
@@ -1217,8 +1216,8 @@ body .corner-decoration-4 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 28px;
-    font-size: 16px;
+    padding: 12px 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
@@ -1228,18 +1227,19 @@ body .corner-decoration-4 {
     box-shadow: 0 4px 12px rgba(208, 46, 144, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 140px;
+    min-width: 120px;
+    width: 100%;
+    max-width: 160px;
 }
 
 /* 确保按钮容器居中显示 */
 .level-1 .btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
     margin: 40px auto 0;
-    flex-wrap: nowrap;
+    max-width: 800px;
+    justify-items: center;
 }
 
 /* 悬停效果 */
@@ -1257,8 +1257,8 @@ body .corner-decoration-4 {
 
 /* 按钮内部元素样式 */
 .btn-icon {
-    font-size: 16px;
-    margin-right: 6px;
+    font-size: 14px;
+    margin-right: 4px;
 }
 
 .btn-text {
@@ -1266,6 +1266,16 @@ body .corner-decoration-4 {
 }
 
 /* 不同按钮的样式变化 */
+.btn:nth-child(1) {
+    background: linear-gradient(135deg, #d02e90 0%, #ff6b9d 100%);
+    box-shadow: 0 4px 12px rgba(208, 46, 144, 0.3);
+}
+
+.btn:nth-child(1):hover {
+    background: linear-gradient(135deg, #ff6b9d 0%, #d02e90 100%);
+    box-shadow: 0 6px 20px rgba(208, 46, 144, 0.4);
+}
+
 .btn:nth-child(2) {
     background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
     box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
@@ -1286,29 +1296,113 @@ body .corner-decoration-4 {
     box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
 }
 
+.btn:nth-child(4) {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn:nth-child(4):hover {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn:nth-child(5) {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.btn:nth-child(5):hover {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+}
+
+.btn:nth-child(6) {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.btn:nth-child(6):hover {
+    background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+}
+
+.btn:nth-child(7) {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.btn:nth-child(7):hover {
+    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+}
+
+.btn:nth-child(8) {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.btn:nth-child(8):hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.btn:nth-child(9) {
+    background: linear-gradient(135deg, #7c2d12 0%, #92400e 100%);
+    box-shadow: 0 4px 12px rgba(124, 45, 18, 0.3);
+}
+
+.btn:nth-child(9):hover {
+    background: linear-gradient(135deg, #92400e 0%, #7c2d12 100%);
+    box-shadow: 0 6px 20px rgba(124, 45, 18, 0.4);
+}
+
+.btn:nth-child(10) {
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+    box-shadow: 0 4px 12px rgba(55, 65, 81, 0.3);
+}
+
+.btn:nth-child(10):hover {
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+    box-shadow: 0 6px 20px rgba(55, 65, 81, 0.4);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .btn {
-        padding: 12px 20px;
-        font-size: 14px;
-        min-width: 100px;
+    .btns {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        max-width: 600px;
     }
 
-    .btns {
-        gap: 12px;
-        margin: 30px auto 0;
+    .btn {
+        padding: 10px 12px;
+        font-size: 13px;
+        min-width: 100px;
+        max-width: 140px;
+    }
+
+    .btn-icon {
+        font-size: 12px;
+        margin-right: 3px;
     }
 }
 
 @media (max-width: 480px) {
-    .btn {
-        padding: 10px 16px;
-        font-size: 13px;
-        min-width: 80px;
+    .btns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        max-width: 400px;
     }
 
-    .btns {
-        gap: 8px;
-        margin: 25px auto 0;
+    .btn {
+        padding: 8px 10px;
+        font-size: 12px;
+        min-width: 80px;
+        max-width: 120px;
+    }
+
+    .btn-icon {
+        font-size: 11px;
+        margin-right: 2px;
     }
 }
