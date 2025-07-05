@@ -1,466 +1,143 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
     <head>
-        <title>MoonBit - 新一代AI云原生开发平台</title>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="MoonBit - 张宏波老师最新力作，新一代AI云原生开发平台，快速、简单、可拓展" />
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-        <link rel="stylesheet" href="/index.css" />
-        <link rel="preload" href="/images/logo.png" as="image" />
-        <link rel="preload" href="/images/1.svg" as="image" />
-        <link rel="preload" href="/images/2.svg" as="image" />
-        <link rel="preload" href="/images/3.svg" as="image" />
-        <link rel="preload" href="/images/4.svg" as="image" />
-        <!-- 移除谷歌字体 -->
+        <title>MoonBit开发网</title>
+        <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <main class="home-more">
-            <section class="banner" role="banner" data-parallax="true">
-                <div class="scan-lines" aria-hidden="true"></div>
-                <div class="geometric-bg" aria-hidden="true">
-                    <div class="tech-elements"></div>
-                    <div class="hexagon"></div>
-                </div>
-                <div class="info">
-                    <div class="left">
-                        <div class="logo-wrap">
-                            <img class="logo" src="/images/logo.png" alt="MoonBit Logo" loading="lazy" />
-                        </div>
-                        <h1 class="logo-name">MoonBit(月兔)</h1>
-                        <div class="author">张宏波老师最新力作（原reScript作者）</div>
-                        <div class="describe">
-                            <h2 class="title">新一代AI云原生编程语言</h2>
-                            <p class="tips">快速 · 简单 · 可拓展</p>
-                        </div>
+        <div class="container">
+            <div class="banner">
+                <div class="wrapper">
+                    <div class="info">
+                        <div class="logo"><img src="./images/logo.png" /></div>
+                        <div class="name">MoonBit(月兔)</div>
+                        <div class="author">张宏波老师最新力作（原ReScript作者）</div>
+                        <div class="description">新一代云原生编程语言</div>
+                        <div class="features">快速 · 简单 · 可拓展</div>
                     </div>
-                    <div class="space" aria-hidden="true"></div>
-                    <div class="right">
-                        <div class="compare" role="region" aria-label="性能对比图表">
-                            <div class="row" data-tooltip="运行时性能对比 - MoonBit表现优异">
+                    <div class="performance">
+                        <div class="row" data-tooltip="运行时性能对比 - MoonBit表现优异">
+                            <div class="wrap">
                                 <div class="img">
                                     <img class="icon" src="/images/1.svg" alt="运行时性能" loading="lazy" />
                                 </div>
                                 <div class="data">
                                     <div class="line">
                                         <div class="name">MoonBit</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="177.9" aria-valuemin="0" aria-valuemax="6357.8" aria-label="MoonBit运行时间">
-                                            <div class="bar">
-                                                <div class="bar-inner main" style="width: 3%"></div>
-                                            </div>
-                                            <div class="value">177.9ms</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 3%"></div>
                                         </div>
+                                        <div class="value">177.9ms</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">Rust</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="160.8" aria-valuemin="0" aria-valuemax="6357.8" aria-label="Rust运行时间">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 2%"></div>
-                                            </div>
-                                            <div class="value">160.8ms</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 2%"></div>
                                         </div>
+                                        <div class="value">160.8ms</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">Go</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="6357.8" aria-valuemin="0" aria-valuemax="6357.8" aria-label="Go运行时间">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 200px"></div>
-                                            </div>
-                                            <div class="value">6357.8ms</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 200px"></div>
                                         </div>
+                                        <div class="value">6357.8ms</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" data-tooltip="文件大小对比 - MoonBit生成最小文件">
+                            <div class="tips">计算fib(46) 10000000 次时间</div>
+                        </div>
+                        <div class="row" data-tooltip="文件大小对比 - MoonBit生成最小文件">
+                            <div class="wrap">
                                 <div class="img">
                                     <img class="icon" src="/images/2.svg" alt="文件大小" loading="lazy" />
                                 </div>
                                 <div class="data">
                                     <div class="line">
                                         <div class="name">MoonBit</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="253" aria-valuemin="0" aria-valuemax="1447712" aria-label="MoonBit文件大小">
-                                            <div class="bar">
-                                                <div class="bar-inner main" style="width: 2%"></div>
-                                            </div>
-                                            <div class="value">253 bytes</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 2%"></div>
                                         </div>
+                                        <div class="value">253 bytes</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">Rust</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="498" aria-valuemin="0" aria-valuemax="1447712" aria-label="Rust文件大小">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 3%"></div>
-                                            </div>
-                                            <div class="value">498 bytes</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 3%"></div>
                                         </div>
+                                        <div class="value">498 bytes</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">Go</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="1447712" aria-valuemin="0" aria-valuemax="1447712" aria-label="Go文件大小">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 200px"></div>
-                                            </div>
-                                            <div class="value">1,447,712 bytes</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 200px"></div>
                                         </div>
+                                        <div class="value">1,447,712 bytes</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" data-tooltip="编译时间对比 - MoonBit编译速度最快">
+                            <div class="tips">生成 wasm 文件大小</div>
+                        </div>
+                        <div class="row" data-tooltip="编译时间对比 - MoonBit编译速度最快">
+                            <div class="wrap">
                                 <div class="img">
                                     <img class="icon" src="/images/3.svg" alt="总耗时" loading="lazy" />
                                 </div>
                                 <div class="data">
                                     <div class="line">
                                         <div class="name">MoonBit</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="1060" aria-valuemin="0" aria-valuemax="2560" aria-label="MoonBit总耗时">
-                                            <div class="bar">
-                                                <div class="bar-inner main" style="width: 10%"></div>
-                                            </div>
-                                            <div class="value">1.06 s</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 10%"></div>
                                         </div>
+                                        <div class="value">1.06 s</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">Rust</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="9010" aria-valuemin="0" aria-valuemax="2560" aria-label="Rust总耗时">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 200px"></div>
-                                            </div>
-                                            <div class="value">9.01 s</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 200px"></div>
                                         </div>
+                                        <div class="value">9.01 s</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">Go</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="2560" aria-valuemin="0" aria-valuemax="2560" aria-label="Go总耗时">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 30%"></div>
-                                            </div>
-                                            <div class="value">2.56 s</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 30%"></div>
                                         </div>
+                                        <div class="value">2.56 s</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row" data-tooltip="内存占用对比 - MoonBit内存效率最高">
+                            <div class="tips">编译 626 个包所需时间</div>
+                        </div>
+                        <div class="row" data-tooltip="内存占用对比 - MoonBit内存效率最高">
+                            <div class="wrap">
                                 <div class="img">
                                     <img class="icon" src="/images/4.svg" alt="内存占用" loading="lazy" />
                                 </div>
                                 <div class="data">
                                     <div class="line">
                                         <div class="name">MoonBit</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="338.6" aria-valuemin="0" aria-valuemax="8493.8" aria-label="MoonBit内存占用">
-                                            <div class="bar">
-                                                <div class="bar-inner main" style="width: 4%"></div>
-                                            </div>
-                                            <div class="value">338.6 ns</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 4%"></div>
                                         </div>
+                                        <div class="value">338.6 ns</div>
                                     </div>
                                     <div class="line">
                                         <div class="name">JS Iterator helpers</div>
-                                        <div class="progress" role="progressbar" aria-valuenow="8493.8" aria-valuemin="0" aria-valuemax="8493.8" aria-label="JS Iterator helpers内存占用">
-                                            <div class="bar">
-                                                <div class="bar-inner" style="width: 200px"></div>
-                                            </div>
-                                            <div class="value">8,493.8 ns</div>
+                                        <div class="progress">
+                                            <div class="bar" style="width: 200px"></div>
                                         </div>
+                                        <div class="value">8,493.8 ns</div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="tips">运行一个 `Iter` 类型指令的时间</div>
                         </div>
                     </div>
                 </div>
-                <div class="action">
-                    <a href="#" class="button plugin" role="button" aria-label="下载MoonBit插件" tabindex="0" data-magnetic="true"> 下载插件 </a>
-                </div>
-            </section>
-
-            <!-- 功能特性区域 -->
-            <section class="features" id="features">
-                <div class="container">
-                    <h2 class="section-title">强大的功能特性</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">⚡</div>
-                            <h3>极速编译</h3>
-                            <p>基于增量编译技术，编译速度比传统语言快10倍以上，大幅提升开发效率</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🔒</div>
-                            <h3>内存安全</h3>
-                            <p>内置垃圾回收器和所有权系统，从根本上消除内存泄漏和悬空指针等问题</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🌐</div>
-                            <h3>多端支持</h3>
-                            <p>支持编译到WebAssembly、JavaScript、原生二进制等多种目标平台</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🧠</div>
-                            <h3>AI辅助开发</h3>
-                            <p>集成先进的AI代码补全和错误诊断，提供智能化的开发体验</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📦</div>
-                            <h3>模块化设计</h3>
-                            <p>优雅的模块系统和包管理，支持渐进式的项目开发和维护</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🔧</div>
-                            <h3>开发工具链</h3>
-                            <p>完整的IDE支持、调试器、格式化工具等，提供一站式开发体验</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 文章教程区域 -->
-            <section class="articles" id="articles">
-                <div class="container">
-                    <h2 class="section-title">文章教程</h2>
-                    <div class="articles-grid">
-                        <article class="article-card">
-                            <div class="article-content">
-                                <div class="article-header">
-                                    <h3>MoonBit快速入门指南</h3>
-                                    <div class="article-meta">
-                                        <span class="article-type">基础教程</span>
-                                        <span class="article-time">30分钟阅读</span>
-                                    </div>
-                                </div>
-                                <p>从零开始学习MoonBit编程语言，包含基础语法、核心概念和最佳实践。</p>
-                                <div class="article-tags">
-                                    <span class="tag">初学者</span>
-                                    <span class="tag">语法基础</span>
-                                    <span class="tag">实践指南</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-                            <div class="article-content">
-                                <div class="article-header">
-                                    <h3>MoonBit进阶开发技巧</h3>
-                                    <div class="article-meta">
-                                        <span class="article-type">进阶教程</span>
-                                        <span class="article-time">45分钟阅读</span>
-                                    </div>
-                                </div>
-                                <p>深入探索MoonBit的高级特性，包括模式匹配、函数式编程和性能优化技巧。</p>
-                                <div class="article-tags">
-                                    <span class="tag">进阶</span>
-                                    <span class="tag">性能优化</span>
-                                    <span class="tag">函数式编程</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 视频教程区域 -->
-            <section class="videos" id="videos">
-                <div class="container">
-                    <h2 class="section-title">视频教程</h2>
-
-                    <div class="videos-grid">
-                        <article class="video-card">
-                            <div class="video-thumbnail">
-                                <div class="placeholder-video">�</div>
-                                <div class="video-duration">28:45</div>
-                                <div class="play-button">▶️</div>
-                            </div>
-                            <div class="video-content">
-                                <h3>MoonBit零基础入门</h3>
-                                <p>从安装配置到编写第一个程序，适合完全零基础的学习者。</p>
-                                <div class="video-meta">
-                                    <span class="video-views">3.5k 观看</span>
-                                    <span class="video-date">2024-12-20</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="video-card">
-                            <div class="video-thumbnail">
-                                <div class="placeholder-video">🚀</div>
-                                <div class="video-duration">35:20</div>
-                                <div class="play-button">▶️</div>
-                            </div>
-                            <div class="video-content">
-                                <h3>MoonBit项目实战</h3>
-                                <p>通过实际项目学习MoonBit的开发流程和最佳实践。</p>
-                                <div class="video-meta">
-                                    <span class="video-views">2.8k 观看</span>
-                                    <span class="video-date">2024-12-18</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="video-card">
-                            <div class="video-thumbnail">
-                                <div class="placeholder-video">⚡</div>
-                                <div class="video-duration">42:15</div>
-                                <div class="play-button">▶️</div>
-                            </div>
-                            <div class="video-content">
-                                <h3>性能优化技巧</h3>
-                                <p>深入了解MoonBit的性能特性，学习编写高效代码。</p>
-                                <div class="video-meta">
-                                    <span class="video-views">4.2k 观看</span>
-                                    <span class="video-date">2024-12-15</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="video-card">
-                            <div class="video-thumbnail">
-                                <div class="placeholder-video">�</div>
-                                <div class="video-duration">52:20</div>
-                                <div class="play-button">▶️</div>
-                            </div>
-                            <div class="video-content"></div>
-                        </article>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 底部区域 -->
-            <footer class="footer" id="footer">
-                <div class="container">
-                    <div class="footer-content">
-                        <div class="footer-section">
-                            <div class="footer-logo">
-                                <img src="/images/logo.png" alt="MoonBit Logo" />
-                                <span>MoonBit</span>
-                            </div>
-                            <p class="footer-description">新一代AI云原生编程语言，快速、简单、可扩展。由ReScript作者张宏波老师倾力打造。</p>
-                        </div>
-                        <div class="footer-section">
-                            <h4>产品</h4>
-                            <ul>
-                                <li><a href="#">下载</a></li>
-                                <li><a href="#">文档</a></li>
-                                <li><a href="#">教程</a></li>
-                                <li><a href="#">示例</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>社区</h4>
-                            <ul>
-                                <li><a href="#">GitHub</a></li>
-                                <li><a href="#">论坛</a></li>
-                                <li><a href="#">Discord</a></li>
-                                <li><a href="#">Stack Overflow</a></li>
-                            </ul>
-                        </div>
-                        <div class="footer-section">
-                            <h4>关于</h4>
-                            <ul>
-                                <li><a href="#">团队</a></li>
-                                <li><a href="#">博客</a></li>
-                                <li><a href="#">新闻</a></li>
-                                <li><a href="#">联系我们</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-bottom">
-                        <p>&copy; 2024 MoonBit. 保留所有权利。</p>
-                        <div class="footer-links">
-                            <a href="#">隐私政策</a>
-                            <a href="#">使用条款</a>
-                            <a href="#">Cookie政策</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </main>
-
-        <script src="/index.js"></script>
-
-        <style>
-            /* 波纹动画 */
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-
-            /* 粒子动画 */
-            @keyframes particleFloat {
-                0%,
-                100% {
-                    opacity: 0;
-                    transform: translateY(0) scale(0.5);
-                }
-                50% {
-                    opacity: 0.6;
-                    transform: translateY(-20px) scale(1);
-                }
-            }
-
-            /* 键盘导航状态 */
-            .keyboard-navigation *:focus {
-                outline: 3px solid var(--main-color) !important;
-                outline-offset: 2px !important;
-            }
-
-            /* 页面隐藏状态优化 */
-            .page-hidden * {
-                animation-play-state: paused !important;
-            }
-
-            /* 无动画支持的后备样式 */
-            .no-animations * {
-                animation: none !important;
-                transition: none !important;
-            }
-
-            /* 进度条工具提示 */
-            .progress-tooltip {
-                animation: tooltipFadeIn 0.3s ease-out;
-            }
-
-            @keyframes tooltipFadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateX(-50%) translateY(-5px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(-50%) translateY(0);
-                }
-            }
-
-            /* 按钮加载状态 */
-            .button.loading::before {
-                content: '';
-                width: 20px;
-                height: 20px;
-                border: 2px solid transparent;
-                border-top: 2px solid currentColor;
-                border-radius: 50%;
-                animation: spin 1s linear infinite;
-                display: inline-block;
-                margin-right: 8px;
-            }
-
-            @keyframes spin {
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-
-            /* 成功状态 */
-            .button.success {
-                background: var(--color-success) !important;
-            }
-
-            .button.success::before {
-                content: '✓ ';
-                animation: none;
-                border: none;
-                width: auto;
-                height: auto;
-                margin-right: 4px;
-            }
-        </style>
+            </div>
+        </div>
+        <script src="index.js"></script>
     </body>
 </html>
