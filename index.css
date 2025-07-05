@@ -15,31 +15,6 @@ body {
     overflow-x: hidden;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 12%;
-    left: 8%;
-    width: 0;
-    height: 0;
-    border-left: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 50px solid rgba(100, 181, 246, 0.08);
-    z-index: -1;
-    animation: bounce-gentle 6s ease-in-out infinite;
-}
-
-body::after {
-    position: fixed;
-    top: 75%;
-    right: 12%;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 183, 77, 0.08);
-    transform: rotate(45deg);
-    z-index: -1;
-    animation: rotate-slow 25s linear infinite;
-}
 .wrapper {
     max-width: 1400px;
     margin: 0 auto;
@@ -53,7 +28,9 @@ body::after {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-
+    .wrapper {
+        flex-direction: column;
+    }
     .info {
         flex: 0 0 50%;
         position: relative;
@@ -113,6 +90,11 @@ body::after {
             z-index: -1;
             animation: pulse-glow 6s ease-in-out infinite reverse;
         }
+    }
+
+    .wrapper-top {
+        display: flex;
+        position: relative;
     }
 
     /* 左侧区域额外几何装饰 */
@@ -202,6 +184,7 @@ body::after {
             font-weight: 600;
         }
         .progress {
+            flex: 0 0 200px;
             width: 200px;
             height: 14px;
             background: linear-gradient(135deg, #37415a 0%, #2d3748 100%);
@@ -220,6 +203,7 @@ body::after {
             word-break: keep-all;
             white-space: nowrap;
             color: #f8f9fa;
+            flex: 0 0 120px;
         }
         .tips {
             font-size: 13px;
@@ -279,1170 +263,990 @@ body::after {
         border-radius: 4px;
         z-index: -1;
     }
-}
 
-/* 更多装饰形状 */
+    /* 更多装饰形状 */
 
-/* 大气背景装饰 - 使用伪元素 */
-.wrapper .backdrop-shapes {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.wrapper .backdrop-shapes::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 35%;
-    width: 90px;
-    height: 45px;
-    background: rgba(100, 181, 246, 0.03);
-    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
-}
-
-.wrapper .backdrop-shapes::after {
-    content: '';
-    position: absolute;
-    bottom: 40%;
-    right: 30%;
-    width: 65px;
-    height: 65px;
-    background: rgba(208, 46, 144, 0.03);
-    clip-path: circle(50% at 50% 50%);
-    border: 2px solid rgba(255, 183, 77, 0.03);
-}
-
-/* 全局大型装饰网格 */
-.wrapper .grid-decoration {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -2;
-    background-image: radial-gradient(circle at 20% 30%, rgba(100, 181, 246, 0.008) 1px, transparent 1px), radial-gradient(circle at 80% 70%, rgba(255, 183, 77, 0.008) 1px, transparent 1px), radial-gradient(circle at 40% 80%, rgba(208, 46, 144, 0.008) 1px, transparent 1px);
-    background-size: 50px 50px, 70px 70px, 90px 90px;
-}
-
-/* 动态光影效果 */
-.level-1 .light-effects {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.level-1 .light-effects::before {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 40%;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(100, 181, 246, 0.02) 0%, transparent 70%);
-    border-radius: 50%;
-}
-
-.level-1 .light-effects::after {
-    content: '';
-    position: absolute;
-    bottom: 25%;
-    right: 35%;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(255, 183, 77, 0.015) 0%, transparent 70%);
-    border-radius: 50%;
-}
-
-.performance::nth-child(1) {
-    content: '';
-    position: absolute;
-    top: 25%;
-    right: 25%;
-    width: 70px;
-    height: 35px;
-    background: rgba(100, 181, 246, 0.04);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    z-index: -1;
-}
-
-.performance::nth-child(2) {
-    content: '';
-    position: absolute;
-    bottom: 25%;
-    right: 8%;
-    width: 55px;
-    height: 55px;
-    background: rgba(255, 183, 77, 0.04);
-    border-radius: 50% 0;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-
-/* 更多大气装饰元素 - 全区域分散 */
-body .atmosphere-layer-1 {
-    position: fixed;
-    top: 8%;
-    left: 85%;
-    width: 120px;
-    height: 60px;
-    background: rgba(100, 181, 246, 0.04);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-    z-index: -1;
-    animation: float-large 15s ease-in-out infinite;
-}
-
-body .atmosphere-layer-2 {
-    position: fixed;
-    bottom: 25%;
-    left: 2%;
-    width: 85px;
-    height: 85px;
-    background: rgba(255, 183, 77, 0.04);
-    border-radius: 50%;
-    border: 3px solid rgba(208, 46, 144, 0.03);
-    z-index: -1;
-    animation: rotate-large 20s linear infinite;
-}
-
-body .atmosphere-layer-3 {
-    position: fixed;
-    top: 70%;
-    right: 25%;
-    width: 100px;
-    height: 50px;
-    background: rgba(208, 46, 144, 0.04);
-    transform: skew(-15deg) rotate(15deg);
-    border-radius: 25px;
-    z-index: -1;
-    animation: sway-large 12s ease-in-out infinite;
-}
-
-/* 更多大气层次装饰 - 第二层 全区域分散 */
-body .atmosphere-layer-4 {
-    position: fixed;
-    top: 5%;
-    left: 25%;
-    width: 75px;
-    height: 150px;
-    background: rgba(100, 181, 246, 0.03);
-    clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
-    transform: rotate(-10deg);
-    z-index: -1;
-    animation: pulse-enhanced 18s ease-in-out infinite;
-}
-
-body .atmosphere-layer-5 {
-    position: fixed;
-    bottom: 8%;
-    right: 15%;
-    width: 110px;
-    height: 55px;
-    background: rgba(255, 183, 77, 0.03);
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-    transform: rotate(25deg);
-    z-index: -1;
-    animation: drift-massive 16s ease-in-out infinite;
-}
-
-body .atmosphere-layer-6 {
-    position: fixed;
-    top: 35%;
-    left: 60%;
-    width: 90px;
-    height: 90px;
-    background: rgba(208, 46, 144, 0.03);
-    border-radius: 45% 55% 60% 40% / 35% 25% 75% 65%;
-    border: 2px solid rgba(100, 181, 246, 0.03);
-    z-index: -1;
-    animation: morph-enhanced 14s ease-in-out infinite;
-}
-
-/* 横跨式大型装饰 - 重新分布 */
-body .mega-decoration-1 {
-    position: fixed;
-    top: 40%;
-    left: 20%;
-    width: 200px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent 0%, rgba(100, 181, 246, 0.02) 50%, transparent 100%);
-    transform: rotate(-15deg);
-    z-index: -1;
-    animation: extend 10s ease-in-out infinite;
-}
-
-body .mega-decoration-2 {
-    position: fixed;
-    bottom: 45%;
-    right: 20%;
-    width: 180px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 183, 77, 0.02) 50%, transparent 100%);
-    transform: rotate(45deg);
-    z-index: -1;
-    animation: pulse-line 8s ease-in-out infinite;
-}
-
-/* 左侧区域增强装饰 */
-.info .enhanced-decorations {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.info .enhanced-decorations::before {
-    content: '';
-    position: absolute;
-    top: 60%;
-    left: -15%;
-    width: 0;
-    height: 0;
-    border-left: 40px solid rgba(255, 183, 77, 0.06);
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-}
-
-.info .enhanced-decorations::after {
-    content: '';
-    position: absolute;
-    top: 15%;
-    right: -10%;
-    width: 60px;
-    height: 30px;
-    background: rgba(100, 181, 246, 0.05);
-    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%);
-    transform: rotate(30deg);
-}
-
-/* 右侧区域增强装饰 */
-.performance .enhanced-decorations {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.performance .enhanced-decorations::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -5%;
-    width: 80px;
-    height: 40px;
-    background: rgba(208, 46, 144, 0.04);
-    clip-path: ellipse(50% 50% at 50% 50%);
-    transform: rotate(-20deg);
-}
-
-.performance .enhanced-decorations::after {
-    content: '';
-    position: absolute;
-    bottom: 35%;
-    left: -8%;
-    width: 70px;
-    height: 70px;
-    background: rgba(255, 183, 77, 0.03);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}
-
-/* 顶级装饰层 - 宇宙级效果 */
-body .cosmic-layer-1 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: -3;
-    background: radial-gradient(ellipse at 15% 25%, rgba(100, 181, 246, 0.005) 40%, transparent 60%), radial-gradient(ellipse at 85% 75%, rgba(255, 183, 77, 0.005) 40%, transparent 60%), radial-gradient(ellipse at 50% 50%, rgba(208, 46, 144, 0.003) 50%, transparent 70%);
-}
-
-/* 边缘装饰 */
-body .edge-decorations {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: -2;
-}
-
-body .edge-decorations::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 5px;
-    height: 200px;
-    background: linear-gradient(180deg, transparent 0%, rgba(100, 181, 246, 0.01) 50%, transparent 100%);
-    transform: translateY(-50%);
-}
-
-body .edge-decorations::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 5px;
-    height: 200px;
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 183, 77, 0.01) 50%, transparent 100%);
-    transform: translateY(-50%);
-}
-
-/* 微妙粒子效果 */
-.wrapper .particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    background-image: radial-gradient(circle at 25% 25%, rgba(100, 181, 246, 0.01) 1px, transparent 1px), radial-gradient(circle at 75% 25%, rgba(255, 183, 77, 0.01) 1px, transparent 1px), radial-gradient(circle at 25% 75%, rgba(208, 46, 144, 0.01) 1px, transparent 1px), radial-gradient(circle at 75% 75%, rgba(100, 181, 246, 0.005) 1px, transparent 1px);
-    background-size: 40px 40px, 60px 60px, 80px 80px, 100px 100px;
-}
-
-/* 大幅度动画装饰层 - 分散布局 */
-body .massive-decoration-1 {
-    position: fixed;
-    top: 10%;
-    left: 12%;
-    width: 80px;
-    height: 80px;
-    background: rgba(100, 181, 246, 0.04);
-    border-radius: 50%;
-    border: 2px solid rgba(208, 46, 144, 0.03);
-    z-index: -1;
-    animation: drift-massive 18s ease-in-out infinite;
-}
-
-body .massive-decoration-2 {
-    position: fixed;
-    bottom: 15%;
-    right: 8%;
-    width: 120px;
-    height: 60px;
-    background: rgba(255, 183, 77, 0.04);
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-    z-index: -1;
-    animation: sway-large 14s ease-in-out infinite reverse;
-}
-
-body .massive-decoration-3 {
-    position: fixed;
-    top: 35%;
-    right: 15%;
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 80px solid rgba(208, 46, 144, 0.04);
-    z-index: -1;
-    animation: float-large 16s ease-in-out infinite;
-}
-
-body .massive-decoration-4 {
-    position: fixed;
-    bottom: 60%;
-    left: 8%;
-    width: 90px;
-    height: 45px;
-    background: rgba(100, 181, 246, 0.04);
-    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-    z-index: -1;
-    animation: rotate-large 22s linear infinite;
-}
-
-body .massive-decoration-5 {
-    position: fixed;
-    top: 80%;
-    left: 60%;
-    width: 100px;
-    height: 50px;
-    background: rgba(255, 183, 77, 0.04);
-    transform: skew(-20deg);
-    border-radius: 25px;
-    z-index: -1;
-    animation: drift-massive 20s ease-in-out infinite reverse;
-}
-
-body .massive-decoration-6 {
-    position: fixed;
-    top: 20%;
-    left: 85%;
-    width: 70px;
-    height: 70px;
-    background: rgba(208, 46, 144, 0.04);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    z-index: -1;
-    animation: float-large 12s ease-in-out infinite;
-}
-
-body .massive-decoration-7 {
-    position: fixed;
-    bottom: 40%;
-    right: 45%;
-    width: 110px;
-    height: 30px;
-    background: rgba(100, 181, 246, 0.04);
-    clip-path: ellipse(50% 50% at 50% 50%);
-    transform: rotate(35deg);
-    z-index: -1;
-    animation: sway-large 18s ease-in-out infinite;
-}
-
-body .massive-decoration-8 {
-    position: fixed;
-    top: 50%;
-    left: 35%;
-    width: 85px;
-    height: 85px;
-    background: rgba(255, 183, 77, 0.04);
-    clip-path: circle(50% at 50% 50%);
-    border: 3px solid rgba(208, 46, 144, 0.03);
-    z-index: -1;
-    animation: rotate-large 25s linear infinite reverse;
-}
-
-/* 边界区域补充装饰 */
-body .edge-extra-1 {
-    position: fixed;
-    top: 15%;
-    left: 1%;
-    width: 40px;
-    height: 200px;
-    background: rgba(100, 181, 246, 0.03);
-    clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
-    z-index: -1;
-    animation: wave-motion 20s ease-in-out infinite;
-}
-
-body .edge-extra-2 {
-    position: fixed;
-    top: 15%;
-    right: 1%;
-    width: 40px;
-    height: 200px;
-    background: rgba(255, 183, 77, 0.03);
-    clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
-    z-index: -1;
-    animation: wave-motion 22s ease-in-out infinite reverse;
-}
-
-body .edge-extra-3 {
-    position: fixed;
-    top: 1%;
-    left: 20%;
-    width: 250px;
-    height: 30px;
-    background: rgba(208, 46, 144, 0.03);
-    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-    z-index: -1;
-    animation: slide-horizontal 18s ease-in-out infinite;
-}
-
-body .edge-extra-4 {
-    position: fixed;
-    bottom: 1%;
-    left: 30%;
-    width: 200px;
-    height: 25px;
-    background: rgba(100, 181, 246, 0.03);
-    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
-    z-index: -1;
-    animation: slide-horizontal 16s ease-in-out infinite reverse;
-}
-
-/* 中间层增强装饰 */
-body .middle-layer-1 {
-    position: fixed;
-    top: 30%;
-    left: 20%;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 25px 50px 25px;
-    border-color: transparent transparent rgba(255, 183, 77, 0.04) transparent;
-    transform: rotate(30deg);
-    z-index: -1;
-    animation: drift-massive 14s ease-in-out infinite;
-}
-
-body .middle-layer-2 {
-    position: fixed;
-    top: 60%;
-    right: 20%;
-    width: 80px;
-    height: 40px;
-    background: rgba(208, 46, 144, 0.04);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    transform: rotate(-25deg);
-    z-index: -1;
-    animation: sway-large 17s ease-in-out infinite;
-}
-
-body .middle-layer-3 {
-    position: fixed;
-    top: 40%;
-    left: 80%;
-    width: 70px;
-    height: 70px;
-    background: rgba(100, 181, 246, 0.04);
-    border-radius: 50%;
-    border: 3px solid rgba(255, 183, 77, 0.03);
-    z-index: -1;
-    animation: pulse-enhanced 19s ease-in-out infinite;
-}
-
-body .middle-layer-4 {
-    position: fixed;
-    bottom: 50%;
-    left: 15%;
-    width: 100px;
-    height: 25px;
-    background: rgba(255, 183, 77, 0.04);
-    border-radius: 50px;
-    transform: rotate(45deg);
-    z-index: -1;
-    animation: rotate-large 21s linear infinite;
-}
-
-/* 螺旋运动装饰 */
-body .spiral-decoration-1 {
-    position: fixed;
-    top: 25%;
-    left: 70%;
-    width: 60px;
-    height: 60px;
-    background: rgba(208, 46, 144, 0.04);
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    z-index: -1;
-    animation: spiral 24s ease-in-out infinite;
-}
-
-body .spiral-decoration-2 {
-    position: fixed;
-    bottom: 30%;
-    left: 40%;
-    width: 50px;
-    height: 100px;
-    background: rgba(100, 181, 246, 0.04);
-    clip-path: polygon(0% 0%, 100% 20%, 100% 80%, 0% 100%);
-    z-index: -1;
-    animation: spiral 20s ease-in-out infinite reverse;
-}
-
-body .spiral-decoration-3 {
-    position: fixed;
-    top: 55%;
-    right: 40%;
-    width: 90px;
-    height: 45px;
-    background: rgba(255, 183, 77, 0.04);
-    clip-path: ellipse(50% 50% at 50% 50%);
-    border: 2px solid rgba(208, 46, 144, 0.03);
-    z-index: -1;
-    animation: spiral 18s ease-in-out infinite;
-}
-
-/* 垂直滑动装饰 */
-body .vertical-slide-1 {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    width: 35px;
-    height: 70px;
-    background: rgba(100, 181, 246, 0.04);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transform: rotate(15deg);
-    z-index: -1;
-    animation: slide-vertical 15s ease-in-out infinite;
-}
-
-body .vertical-slide-2 {
-    position: fixed;
-    bottom: 20%;
-    right: 50%;
-    width: 45px;
-    height: 90px;
-    background: rgba(255, 183, 77, 0.04);
-    clip-path: polygon(0% 0%, 100% 25%, 100% 75%, 0% 100%);
-    transform: rotate(-15deg);
-    z-index: -1;
-    animation: slide-vertical 13s ease-in-out infinite reverse;
-}
-
-/* 动画效果定义 - 增大幅度 */
-@keyframes float-slow {
-    0%,
-    100% {
-        transform: translateY(0px) translateX(0px);
+    /* 大气背景装饰 - 使用伪元素 */
+    .wrapper .backdrop-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
     }
-    33% {
-        transform: translateY(-10px) translateX(5px);
-    }
-    66% {
-        transform: translateY(5px) translateX(-8px);
-    }
-}
 
-@keyframes float-large {
-    0%,
-    100% {
-        transform: translateY(0px) translateX(0px) scale(1);
+    .wrapper .backdrop-shapes::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: 35%;
+        width: 90px;
+        height: 45px;
+        background: rgba(100, 181, 246, 0.03);
+        clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
     }
-    33% {
-        transform: translateY(-30px) translateX(20px) scale(1.1);
-    }
-    66% {
-        transform: translateY(15px) translateX(-25px) scale(0.9);
-    }
-}
 
-@keyframes rotate-large {
-    0% {
-        transform: rotate(0deg) scale(1);
+    .wrapper .backdrop-shapes::after {
+        content: '';
+        position: absolute;
+        bottom: 40%;
+        right: 30%;
+        width: 65px;
+        height: 65px;
+        background: rgba(208, 46, 144, 0.03);
+        clip-path: circle(50% at 50% 50%);
+        border: 2px solid rgba(255, 183, 77, 0.03);
     }
-    25% {
-        transform: rotate(90deg) scale(1.1);
-    }
-    50% {
-        transform: rotate(180deg) scale(0.9);
-    }
-    75% {
-        transform: rotate(270deg) scale(1.05);
-    }
-    100% {
-        transform: rotate(360deg) scale(1);
-    }
-}
 
-@keyframes sway-large {
-    0%,
-    100% {
-        transform: skew(-15deg) rotate(15deg) translateX(0px) translateY(0px);
+    /* 全局大型装饰网格 */
+    .wrapper .grid-decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -2;
+        background-image: radial-gradient(circle at 20% 30%, rgba(100, 181, 246, 0.008) 1px, transparent 1px), radial-gradient(circle at 80% 70%, rgba(255, 183, 77, 0.008) 1px, transparent 1px), radial-gradient(circle at 40% 80%, rgba(208, 46, 144, 0.008) 1px, transparent 1px);
+        background-size: 50px 50px, 70px 70px, 90px 90px;
     }
-    33% {
-        transform: skew(-20deg) rotate(25deg) translateX(40px) translateY(-20px);
-    }
-    66% {
-        transform: skew(-10deg) rotate(5deg) translateX(-30px) translateY(15px);
-    }
-}
 
-@keyframes drift-massive {
-    0%,
-    100% {
-        transform: translateX(0px) translateY(0px) rotate(0deg);
+    /* 动态光影效果 */
+    .level-1 .light-effects {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
     }
-    25% {
-        transform: translateX(50px) translateY(-30px) rotate(90deg);
-    }
-    50% {
-        transform: translateX(30px) translateY(40px) rotate(180deg);
-    }
-    75% {
-        transform: translateX(-40px) translateY(20px) rotate(270deg);
-    }
-}
 
-@keyframes rotate-slow {
-    0% {
-        transform: rotate(0deg);
+    .level-1 .light-effects::before {
+        content: '';
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, rgba(100, 181, 246, 0.02) 0%, transparent 70%);
+        border-radius: 50%;
     }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
-@keyframes sway {
-    0%,
-    100% {
-        transform: skew(-15deg) rotate(15deg) translateX(0px);
+    .level-1 .light-effects::after {
+        content: '';
+        position: absolute;
+        bottom: 25%;
+        right: 35%;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, rgba(255, 183, 77, 0.015) 0%, transparent 70%);
+        border-radius: 50%;
     }
-    50% {
-        transform: skew(-15deg) rotate(15deg) translateX(15px);
-    }
-}
 
-@keyframes gentle-sway {
-    0%,
-    100% {
-        transform: rotate(-10deg) translateY(0px);
+    .performance::nth-child(1) {
+        content: '';
+        position: absolute;
+        top: 25%;
+        right: 25%;
+        width: 70px;
+        height: 35px;
+        background: rgba(100, 181, 246, 0.04);
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        z-index: -1;
     }
-    50% {
-        transform: rotate(-5deg) translateY(-8px);
-    }
-}
 
-@keyframes drift {
-    0%,
-    100% {
-        transform: rotate(25deg) translateX(0px) translateY(0px);
+    .performance::nth-child(2) {
+        content: '';
+        position: absolute;
+        bottom: 25%;
+        right: 8%;
+        width: 55px;
+        height: 55px;
+        background: rgba(255, 183, 77, 0.04);
+        border-radius: 50% 0;
+        transform: rotate(45deg);
+        z-index: -1;
     }
-    33% {
-        transform: rotate(30deg) translateX(10px) translateY(-5px);
-    }
-    66% {
-        transform: rotate(20deg) translateX(-5px) translateY(5px);
-    }
-}
 
-@keyframes morph {
-    0%,
-    100% {
+    /* 更多大气装饰元素 - 全区域分散 */
+    .atmosphere-layer-1 {
+        position: fixed;
+        top: 8%;
+        left: 85%;
+        width: 120px;
+        height: 60px;
+        background: rgba(100, 181, 246, 0.04);
+        clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+        z-index: -1;
+        animation: float-large 15s ease-in-out infinite;
+    }
+
+    .atmosphere-layer-2 {
+        position: fixed;
+        bottom: 25%;
+        left: 2%;
+        width: 85px;
+        height: 85px;
+        background: rgba(255, 183, 77, 0.04);
+        border-radius: 50%;
+        border: 3px solid rgba(208, 46, 144, 0.03);
+        z-index: -1;
+        animation: rotate-large 20s linear infinite;
+    }
+
+    .atmosphere-layer-3 {
+        position: fixed;
+        top: 70%;
+        right: 25%;
+        width: 100px;
+        height: 50px;
+        background: rgba(208, 46, 144, 0.04);
+        transform: skew(-15deg) rotate(15deg);
+        border-radius: 25px;
+        z-index: -1;
+        animation: sway-large 12s ease-in-out infinite;
+    }
+
+    /* 更多大气层次装饰 - 第二层 全区域分散 */
+    .atmosphere-layer-4 {
+        position: fixed;
+        top: 5%;
+        left: 25%;
+        width: 75px;
+        height: 150px;
+        background: rgba(100, 181, 246, 0.03);
+        clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
+        transform: rotate(-10deg);
+        z-index: -1;
+        animation: pulse-enhanced 18s ease-in-out infinite;
+    }
+
+    .atmosphere-layer-5 {
+        position: fixed;
+        bottom: 8%;
+        right: 15%;
+        width: 110px;
+        height: 55px;
+        background: rgba(255, 183, 77, 0.03);
+        clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        transform: rotate(25deg);
+        z-index: -1;
+        animation: drift-massive 16s ease-in-out infinite;
+    }
+
+    .atmosphere-layer-6 {
+        position: fixed;
+        top: 35%;
+        left: 60%;
+        width: 90px;
+        height: 90px;
+        background: rgba(208, 46, 144, 0.03);
         border-radius: 45% 55% 60% 40% / 35% 25% 75% 65%;
+        border: 2px solid rgba(100, 181, 246, 0.03);
+        z-index: -1;
+        animation: morph-enhanced 14s ease-in-out infinite;
     }
-    25% {
-        border-radius: 60% 40% 45% 55% / 65% 75% 25% 35%;
-    }
-    50% {
-        border-radius: 40% 60% 55% 45% / 25% 65% 75% 35%;
-    }
-    75% {
-        border-radius: 55% 45% 40% 60% / 75% 35% 65% 25%;
-    }
-}
 
-@keyframes extend {
-    0%,
-    100% {
+    /* 横跨式大型装饰 - 重新分布 */
+    .mega-decoration-1 {
+        position: fixed;
+        top: 40%;
+        left: 20%;
         width: 200px;
-        opacity: 0.02;
+        height: 3px;
+        background: linear-gradient(90deg, transparent 0%, rgba(100, 181, 246, 0.02) 50%, transparent 100%);
+        transform: rotate(-15deg);
+        z-index: -1;
+        animation: extend 10s ease-in-out infinite;
     }
-    50% {
-        width: 250px;
-        opacity: 0.03;
-    }
-}
 
-@keyframes pulse-line {
-    0%,
-    100% {
+    .mega-decoration-2 {
+        position: fixed;
+        bottom: 45%;
+        right: 20%;
+        width: 180px;
         height: 2px;
-        opacity: 0.02;
-    }
-    50% {
-        height: 4px;
-        opacity: 0.04;
-    }
-}
-
-@keyframes bounce-gentle {
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-@keyframes pulse-glow {
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 0.1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.15;
-    }
-}
-
-@keyframes slide-horizontal {
-    0%,
-    100% {
-        transform: translateX(0px);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-}
-
-@keyframes morph-enhanced {
-    0%,
-    100% {
-        border-radius: 45% 55% 60% 40% / 35% 25% 75% 65%;
-        transform: scale(1) rotate(0deg);
-    }
-    25% {
-        border-radius: 60% 40% 45% 55% / 65% 75% 25% 35%;
-        transform: scale(1.15) rotate(90deg);
-    }
-    50% {
-        border-radius: 40% 60% 55% 45% / 25% 65% 75% 35%;
-        transform: scale(0.85) rotate(180deg);
-    }
-    75% {
-        border-radius: 55% 45% 40% 60% / 75% 35% 65% 25%;
-        transform: scale(1.1) rotate(270deg);
-    }
-}
-
-@keyframes pulse-enhanced {
-    0%,
-    100% {
-        transform: scale(1) translateY(0px);
-        opacity: 0.04;
-    }
-    50% {
-        transform: scale(1.3) translateY(-20px);
-        opacity: 0.08;
-    }
-}
-
-@keyframes wave-motion {
-    0%,
-    100% {
-        transform: translateX(0px) translateY(0px) skew(0deg);
-    }
-    33% {
-        transform: translateX(30px) translateY(-15px) skew(-10deg);
-    }
-    66% {
-        transform: translateX(-25px) translateY(20px) skew(10deg);
-    }
-}
-
-/* 中央区域装饰 */
-body .center-decoration-1 {
-    position: fixed;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150px;
-    height: 75px;
-    background: rgba(100, 181, 246, 0.02);
-    clip-path: polygon(0% 0%, 100% 0%, 85% 50%, 100% 100%, 0% 100%, 15% 50%);
-    z-index: -1;
-    animation: wave-motion 16s ease-in-out infinite;
-}
-
-body .center-decoration-2 {
-    position: fixed;
-    top: 25%;
-    left: 45%;
-    width: 95px;
-    height: 95px;
-    background: rgba(255, 183, 77, 0.03);
-    border-radius: 50%;
-    border: 4px solid rgba(208, 46, 144, 0.02);
-    z-index: -1;
-    animation: morph-enhanced 20s ease-in-out infinite;
-}
-
-/* 角落增强装饰 */
-body .corner-decoration-1 {
-    position: fixed;
-    top: 5%;
-    left: 5%;
-    width: 60px;
-    height: 120px;
-    background: rgba(208, 46, 144, 0.03);
-    clip-path: polygon(0% 0%, 100% 25%, 100% 75%, 0% 100%);
-    z-index: -1;
-    animation: pulse-enhanced 14s ease-in-out infinite;
-}
-
-body .corner-decoration-2 {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    width: 0;
-    height: 0;
-    border-left: 40px solid rgba(100, 181, 246, 0.04);
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    z-index: -1;
-    animation: drift-massive 12s ease-in-out infinite;
-}
-
-body .corner-decoration-3 {
-    position: fixed;
-    top: 5%;
-    right: 35%;
-    width: 80px;
-    height: 40px;
-    background: rgba(255, 183, 77, 0.04);
-    transform: rotate(-15deg);
-    border-radius: 20px;
-    z-index: -1;
-    animation: wave-motion 18s ease-in-out infinite reverse;
-}
-
-body .corner-decoration-4 {
-    position: fixed;
-    bottom: 5%;
-    left: 30%;
-    width: 75px;
-    height: 75px;
-    background: rgba(208, 46, 144, 0.04);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transform: rotate(45deg);
-    z-index: -1;
-    animation: rotate-large 15s linear infinite;
-}
-
-/* 按钮容器样式 */
-.btns {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-    margin: 30px auto 0;
-    max-width: 1400px;
-    padding: 0 20px;
-    justify-items: center;
-    align-items: center;
-}
-
-/* 下载按钮样式 - 简洁设计 */
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 10px;
-    font-size: 11px;
-    font-weight: 500;
-    color: #ffffff;
-    text-decoration: none;
-    background: linear-gradient(135deg, #d02e90 0%, #ff6b9d 100%);
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(208, 46, 144, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 80px;
-    height: 32px;
-}
-
-/* 确保按钮容器居中显示 */
-.level-1 .btns {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-    margin: 30px auto 0;
-    max-width: 1400px;
-    padding: 0 20px;
-    justify-items: center;
-    align-items: center;
-}
-
-/* 悬停效果 */
-.btn:hover {
-    transform: translateY(-1px);
-    background: linear-gradient(135deg, #ff6b9d 0%, #d02e90 100%);
-    box-shadow: 0 3px 10px rgba(208, 46, 144, 0.35);
-}
-
-/* 点击效果 */
-.btn:active {
-    transform: translateY(0px);
-    box-shadow: 0 1px 4px rgba(208, 46, 144, 0.3);
-}
-
-/* 按钮内部元素样式 */
-.btn-icon {
-    font-size: 10px;
-    margin-right: 2px;
-}
-
-.btn-text {
-    font-weight: 500;
-    font-size: 11px;
-}
-
-/* 不同按钮的样式变化 */
-.btn:nth-child(1) {
-    background: linear-gradient(135deg, #d02e90 0%, #ff6b9d 100%);
-    box-shadow: 0 2px 6px rgba(208, 46, 144, 0.25);
-}
-
-.btn:nth-child(1):hover {
-    background: linear-gradient(135deg, #ff6b9d 0%, #d02e90 100%);
-    box-shadow: 0 3px 10px rgba(208, 46, 144, 0.35);
-}
-
-.btn:nth-child(2) {
-    background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
-    box-shadow: 0 2px 6px rgba(100, 181, 246, 0.25);
-}
-
-.btn:nth-child(2):hover {
-    background: linear-gradient(135deg, #42a5f5 0%, #64b5f6 100%);
-    box-shadow: 0 3px 10px rgba(100, 181, 246, 0.35);
-}
-
-.btn:nth-child(3) {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-    box-shadow: 0 2px 6px rgba(251, 191, 36, 0.25);
-}
-
-.btn:nth-child(3):hover {
-    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-    box-shadow: 0 3px 10px rgba(251, 191, 36, 0.35);
-}
-
-.btn:nth-child(4) {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
-}
-
-.btn:nth-child(4):hover {
-    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-    box-shadow: 0 3px 10px rgba(16, 185, 129, 0.35);
-}
-
-.btn:nth-child(5) {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    box-shadow: 0 2px 6px rgba(139, 92, 246, 0.25);
-}
-
-.btn:nth-child(5):hover {
-    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
-    box-shadow: 0 3px 10px rgba(139, 92, 246, 0.35);
-}
-
-.btn:nth-child(6) {
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.25);
-}
-
-.btn:nth-child(6):hover {
-    background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
-    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.35);
-}
-
-.btn:nth-child(7) {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-    box-shadow: 0 2px 6px rgba(6, 182, 212, 0.25);
-}
-
-.btn:nth-child(7):hover {
-    background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
-    box-shadow: 0 3px 10px rgba(6, 182, 212, 0.35);
-}
-
-.btn:nth-child(8) {
-    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-    box-shadow: 0 2px 6px rgba(220, 38, 38, 0.25);
-}
-
-.btn:nth-child(8):hover {
-    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
-    box-shadow: 0 3px 10px rgba(220, 38, 38, 0.35);
-}
-
-.btn:nth-child(9) {
-    background: linear-gradient(135deg, #7c2d12 0%, #92400e 100%);
-    box-shadow: 0 2px 6px rgba(124, 45, 18, 0.25);
-}
-
-.btn:nth-child(9):hover {
-    background: linear-gradient(135deg, #92400e 0%, #7c2d12 100%);
-    box-shadow: 0 3px 10px rgba(124, 45, 18, 0.35);
-}
-
-.btn:nth-child(10) {
-    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
-    box-shadow: 0 2px 6px rgba(55, 65, 81, 0.25);
-}
-
-.btn:nth-child(10):hover {
-    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-    box-shadow: 0 3px 10px rgba(55, 65, 81, 0.35);
-}
-
-.btn:nth-child(11) {
-    background: linear-gradient(135deg, #be185d 0%, #9d174d 100%);
-    box-shadow: 0 2px 6px rgba(190, 24, 93, 0.25);
-}
-
-.btn:nth-child(11):hover {
-    background: linear-gradient(135deg, #9d174d 0%, #be185d 100%);
-    box-shadow: 0 3px 10px rgba(190, 24, 93, 0.35);
-}
-
-.btn:nth-child(12) {
-    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
-    box-shadow: 0 2px 6px rgba(124, 58, 237, 0.25);
-}
-
-.btn:nth-child(12):hover {
-    background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
-    box-shadow: 0 3px 10px rgba(124, 58, 237, 0.35);
-}
-
-/* 响应式设计 */
-@media (max-width: 1200px) {
-    .btns {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        max-width: 800px;
-    }
-}
-
-@media (max-width: 768px) {
-    .btns {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        max-width: 600px;
+        background: linear-gradient(90deg, transparent 0%, rgba(255, 183, 77, 0.02) 50%, transparent 100%);
+        transform: rotate(45deg);
+        z-index: -1;
+        animation: pulse-line 8s ease-in-out infinite;
     }
 
-    .btn {
-        padding: 6px 8px;
-        font-size: 10px;
-        min-width: 70px;
+    /* 左侧区域增强装饰 */
+    .info .enhanced-decorations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .info .enhanced-decorations::before {
+        content: '';
+        position: absolute;
+        top: 60%;
+        left: -15%;
+        width: 0;
+        height: 0;
+        border-left: 40px solid rgba(255, 183, 77, 0.06);
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+    }
+
+    .info .enhanced-decorations::after {
+        content: '';
+        position: absolute;
+        top: 15%;
+        right: -10%;
+        width: 60px;
         height: 30px;
+        background: rgba(100, 181, 246, 0.05);
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%);
+        transform: rotate(30deg);
     }
 
-    .btn-icon {
-        font-size: 9px;
-        margin-right: 2px;
+    /* 右侧区域增强装饰 */
+    .performance .enhanced-decorations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
     }
 
-    .btn-text {
-        font-size: 10px;
+    .performance .enhanced-decorations::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        width: 80px;
+        height: 40px;
+        background: rgba(208, 46, 144, 0.04);
+        clip-path: ellipse(50% 50% at 50% 50%);
+        transform: rotate(-20deg);
     }
-}
 
-@media (max-width: 480px) {
+    .performance .enhanced-decorations::after {
+        content: '';
+        position: absolute;
+        bottom: 35%;
+        left: -8%;
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 183, 77, 0.03);
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    /* 顶级装饰层 - 宇宙级效果 */
+    .cosmic-layer-1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -3;
+        background: radial-gradient(ellipse at 15% 25%, rgba(100, 181, 246, 0.005) 40%, transparent 60%), radial-gradient(ellipse at 85% 75%, rgba(255, 183, 77, 0.005) 40%, transparent 60%), radial-gradient(ellipse at 50% 50%, rgba(208, 46, 144, 0.003) 50%, transparent 70%);
+    }
+
+    /* 边缘装饰 */
+    .edge-decorations {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: -2;
+    }
+
+    .edge-decorations::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 5px;
+        height: 200px;
+        background: linear-gradient(180deg, transparent 0%, rgba(100, 181, 246, 0.01) 50%, transparent 100%);
+        transform: translateY(-50%);
+    }
+
+    .edge-decorations::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 5px;
+        height: 200px;
+        background: linear-gradient(180deg, transparent 0%, rgba(255, 183, 77, 0.01) 50%, transparent 100%);
+        transform: translateY(-50%);
+    }
+
+    /* 微妙粒子效果 */
+    .wrapper .particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        background-image: radial-gradient(circle at 25% 25%, rgba(100, 181, 246, 0.01) 1px, transparent 1px), radial-gradient(circle at 75% 25%, rgba(255, 183, 77, 0.01) 1px, transparent 1px), radial-gradient(circle at 25% 75%, rgba(208, 46, 144, 0.01) 1px, transparent 1px), radial-gradient(circle at 75% 75%, rgba(100, 181, 246, 0.005) 1px, transparent 1px);
+        background-size: 40px 40px, 60px 60px, 80px 80px, 100px 100px;
+    }
+
+    /* 大幅度动画装饰层 - 分散布局 */
+    .massive-decoration-1 {
+        position: fixed;
+        top: 10%;
+        left: 12%;
+        width: 80px;
+        height: 80px;
+        background: rgba(100, 181, 246, 0.04);
+        border-radius: 50%;
+        border: 2px solid rgba(208, 46, 144, 0.03);
+        z-index: -1;
+        animation: drift-massive 18s ease-in-out infinite;
+    }
+
+    .massive-decoration-2 {
+        position: fixed;
+        bottom: 15%;
+        right: 8%;
+        width: 120px;
+        height: 60px;
+        background: rgba(255, 183, 77, 0.04);
+        clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+        z-index: -1;
+        animation: sway-large 14s ease-in-out infinite reverse;
+    }
+
+    .massive-decoration-3 {
+        position: fixed;
+        top: 35%;
+        right: 15%;
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 80px solid rgba(208, 46, 144, 0.04);
+        z-index: -1;
+        animation: float-large 16s ease-in-out infinite;
+    }
+
+    .massive-decoration-4 {
+        position: fixed;
+        bottom: 60%;
+        left: 8%;
+        width: 90px;
+        height: 45px;
+        background: rgba(100, 181, 246, 0.04);
+        clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+        z-index: -1;
+        animation: rotate-large 22s linear infinite;
+    }
+
+    .massive-decoration-5 {
+        position: fixed;
+        top: 80%;
+        left: 60%;
+        width: 100px;
+        height: 50px;
+        background: rgba(255, 183, 77, 0.04);
+        transform: skew(-20deg);
+        border-radius: 25px;
+        z-index: -1;
+        animation: drift-massive 20s ease-in-out infinite reverse;
+    }
+
+    .massive-decoration-6 {
+        position: fixed;
+        top: 20%;
+        left: 85%;
+        width: 70px;
+        height: 70px;
+        background: rgba(208, 46, 144, 0.04);
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        z-index: -1;
+        animation: float-large 12s ease-in-out infinite;
+    }
+
+    .massive-decoration-7 {
+        position: fixed;
+        bottom: 40%;
+        right: 45%;
+        width: 110px;
+        height: 30px;
+        background: rgba(100, 181, 246, 0.04);
+        clip-path: ellipse(50% 50% at 50% 50%);
+        transform: rotate(35deg);
+        z-index: -1;
+        animation: sway-large 18s ease-in-out infinite;
+    }
+
+    .massive-decoration-8 {
+        position: fixed;
+        top: 50%;
+        left: 35%;
+        width: 85px;
+        height: 85px;
+        background: rgba(255, 183, 77, 0.04);
+        clip-path: circle(50% at 50% 50%);
+        border: 3px solid rgba(208, 46, 144, 0.03);
+        z-index: -1;
+        animation: rotate-large 25s linear infinite reverse;
+    }
+
+    /* 边界区域补充装饰 */
+    .edge-extra-1 {
+        position: fixed;
+        top: 15%;
+        left: 1%;
+        width: 40px;
+        height: 200px;
+        background: rgba(100, 181, 246, 0.03);
+        clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
+        z-index: -1;
+        animation: wave-motion 20s ease-in-out infinite;
+    }
+
+    .edge-extra-2 {
+        position: fixed;
+        top: 15%;
+        right: 1%;
+        width: 40px;
+        height: 200px;
+        background: rgba(255, 183, 77, 0.03);
+        clip-path: polygon(0% 10%, 100% 0%, 100% 100%, 0% 90%);
+        z-index: -1;
+        animation: wave-motion 22s ease-in-out infinite reverse;
+    }
+
+    .edge-extra-3 {
+        position: fixed;
+        top: 1%;
+        left: 20%;
+        width: 250px;
+        height: 30px;
+        background: rgba(208, 46, 144, 0.03);
+        clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+        z-index: -1;
+        animation: slide-horizontal 18s ease-in-out infinite;
+    }
+
+    .edge-extra-4 {
+        position: fixed;
+        bottom: 1%;
+        left: 30%;
+        width: 200px;
+        height: 25px;
+        background: rgba(100, 181, 246, 0.03);
+        clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+        z-index: -1;
+        animation: slide-horizontal 16s ease-in-out infinite reverse;
+    }
+
+    /* 中间层增强装饰 */
+    .middle-layer-1 {
+        position: fixed;
+        top: 30%;
+        left: 20%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 25px 50px 25px;
+        border-color: transparent transparent rgba(255, 183, 77, 0.04) transparent;
+        transform: rotate(30deg);
+        z-index: -1;
+        animation: drift-massive 14s ease-in-out infinite;
+    }
+
+    .middle-layer-2 {
+        position: fixed;
+        top: 60%;
+        right: 20%;
+        width: 80px;
+        height: 40px;
+        background: rgba(208, 46, 144, 0.04);
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        transform: rotate(-25deg);
+        z-index: -1;
+        animation: sway-large 17s ease-in-out infinite;
+    }
+
+    .middle-layer-3 {
+        position: fixed;
+        top: 40%;
+        left: 80%;
+        width: 70px;
+        height: 70px;
+        background: rgba(100, 181, 246, 0.04);
+        border-radius: 50%;
+        border: 3px solid rgba(255, 183, 77, 0.03);
+        z-index: -1;
+        animation: pulse-enhanced 19s ease-in-out infinite;
+    }
+
+    .middle-layer-4 {
+        position: fixed;
+        bottom: 50%;
+        left: 15%;
+        width: 100px;
+        height: 25px;
+        background: rgba(255, 183, 77, 0.04);
+        border-radius: 50px;
+        transform: rotate(45deg);
+        z-index: -1;
+        animation: rotate-large 21s linear infinite;
+    }
+
+    /* 螺旋运动装饰 */
+    .spiral-decoration-1 {
+        position: fixed;
+        top: 25%;
+        left: 70%;
+        width: 60px;
+        height: 60px;
+        background: rgba(208, 46, 144, 0.04);
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        z-index: -1;
+        animation: spiral 24s ease-in-out infinite;
+    }
+
+    .spiral-decoration-2 {
+        position: fixed;
+        bottom: 30%;
+        left: 40%;
+        width: 50px;
+        height: 100px;
+        background: rgba(100, 181, 246, 0.04);
+        clip-path: polygon(0% 0%, 100% 20%, 100% 80%, 0% 100%);
+        z-index: -1;
+        animation: spiral 20s ease-in-out infinite reverse;
+    }
+
+    .spiral-decoration-3 {
+        position: fixed;
+        top: 55%;
+        right: 40%;
+        width: 90px;
+        height: 45px;
+        background: rgba(255, 183, 77, 0.04);
+        clip-path: ellipse(50% 50% at 50% 50%);
+        border: 2px solid rgba(208, 46, 144, 0.03);
+        z-index: -1;
+        animation: spiral 18s ease-in-out infinite;
+    }
+
+    /* 垂直滑动装饰 */
+    .vertical-slide-1 {
+        position: fixed;
+        top: 20%;
+        left: 50%;
+        width: 35px;
+        height: 70px;
+        background: rgba(100, 181, 246, 0.04);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        transform: rotate(15deg);
+        z-index: -1;
+        animation: slide-vertical 15s ease-in-out infinite;
+    }
+
+    .vertical-slide-2 {
+        position: fixed;
+        bottom: 20%;
+        right: 50%;
+        width: 45px;
+        height: 90px;
+        background: rgba(255, 183, 77, 0.04);
+        clip-path: polygon(0% 0%, 100% 25%, 100% 75%, 0% 100%);
+        transform: rotate(-15deg);
+        z-index: -1;
+        animation: slide-vertical 13s ease-in-out infinite reverse;
+    }
+
+    /* 动画效果定义 - 增大幅度 */
+    @keyframes float-slow {
+        0%,
+        100% {
+            transform: translateY(0px) translateX(0px);
+        }
+        33% {
+            transform: translateY(-10px) translateX(5px);
+        }
+        66% {
+            transform: translateY(5px) translateX(-8px);
+        }
+    }
+
+    @keyframes float-large {
+        0%,
+        100% {
+            transform: translateY(0px) translateX(0px) scale(1);
+        }
+        33% {
+            transform: translateY(-30px) translateX(20px) scale(1.1);
+        }
+        66% {
+            transform: translateY(15px) translateX(-25px) scale(0.9);
+        }
+    }
+
+    @keyframes rotate-large {
+        0% {
+            transform: rotate(0deg) scale(1);
+        }
+        25% {
+            transform: rotate(90deg) scale(1.1);
+        }
+        50% {
+            transform: rotate(180deg) scale(0.9);
+        }
+        75% {
+            transform: rotate(270deg) scale(1.05);
+        }
+        100% {
+            transform: rotate(360deg) scale(1);
+        }
+    }
+
+    @keyframes sway-large {
+        0%,
+        100% {
+            transform: skew(-15deg) rotate(15deg) translateX(0px) translateY(0px);
+        }
+        33% {
+            transform: skew(-20deg) rotate(25deg) translateX(40px) translateY(-20px);
+        }
+        66% {
+            transform: skew(-10deg) rotate(5deg) translateX(-30px) translateY(15px);
+        }
+    }
+
+    @keyframes drift-massive {
+        0%,
+        100% {
+            transform: translateX(0px) translateY(0px) rotate(0deg);
+        }
+        25% {
+            transform: translateX(50px) translateY(-30px) rotate(90deg);
+        }
+        50% {
+            transform: translateX(30px) translateY(40px) rotate(180deg);
+        }
+        75% {
+            transform: translateX(-40px) translateY(20px) rotate(270deg);
+        }
+    }
+
+    @keyframes rotate-slow {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes sway {
+        0%,
+        100% {
+            transform: skew(-15deg) rotate(15deg) translateX(0px);
+        }
+        50% {
+            transform: skew(-15deg) rotate(15deg) translateX(15px);
+        }
+    }
+
+    @keyframes gentle-sway {
+        0%,
+        100% {
+            transform: rotate(-10deg) translateY(0px);
+        }
+        50% {
+            transform: rotate(-5deg) translateY(-8px);
+        }
+    }
+
+    @keyframes drift {
+        0%,
+        100% {
+            transform: rotate(25deg) translateX(0px) translateY(0px);
+        }
+        33% {
+            transform: rotate(30deg) translateX(10px) translateY(-5px);
+        }
+        66% {
+            transform: rotate(20deg) translateX(-5px) translateY(5px);
+        }
+    }
+
+    @keyframes morph {
+        0%,
+        100% {
+            border-radius: 45% 55% 60% 40% / 35% 25% 75% 65%;
+        }
+        25% {
+            border-radius: 60% 40% 45% 55% / 65% 75% 25% 35%;
+        }
+        50% {
+            border-radius: 40% 60% 55% 45% / 25% 65% 75% 35%;
+        }
+        75% {
+            border-radius: 55% 45% 40% 60% / 75% 35% 65% 25%;
+        }
+    }
+
+    @keyframes extend {
+        0%,
+        100% {
+            width: 200px;
+            opacity: 0.02;
+        }
+        50% {
+            width: 250px;
+            opacity: 0.03;
+        }
+    }
+
+    @keyframes pulse-line {
+        0%,
+        100% {
+            height: 2px;
+            opacity: 0.02;
+        }
+        50% {
+            height: 4px;
+            opacity: 0.04;
+        }
+    }
+
+    @keyframes bounce-gentle {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    @keyframes pulse-glow {
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.1;
+        }
+        50% {
+            transform: scale(1.05);
+            opacity: 0.15;
+        }
+    }
+
+    @keyframes slide-horizontal {
+        0%,
+        100% {
+            transform: translateX(0px);
+        }
+        50% {
+            transform: translateX(10px);
+        }
+    }
+
+    @keyframes morph-enhanced {
+        0%,
+        100% {
+            border-radius: 45% 55% 60% 40% / 35% 25% 75% 65%;
+            transform: scale(1) rotate(0deg);
+        }
+        25% {
+            border-radius: 60% 40% 45% 55% / 65% 75% 25% 35%;
+            transform: scale(1.15) rotate(90deg);
+        }
+        50% {
+            border-radius: 40% 60% 55% 45% / 25% 65% 75% 35%;
+            transform: scale(0.85) rotate(180deg);
+        }
+        75% {
+            border-radius: 55% 45% 40% 60% / 75% 35% 65% 25%;
+            transform: scale(1.1) rotate(270deg);
+        }
+    }
+
+    @keyframes pulse-enhanced {
+        0%,
+        100% {
+            transform: scale(1) translateY(0px);
+            opacity: 0.04;
+        }
+        50% {
+            transform: scale(1.3) translateY(-20px);
+            opacity: 0.08;
+        }
+    }
+
+    @keyframes wave-motion {
+        0%,
+        100% {
+            transform: translateX(0px) translateY(0px) skew(0deg);
+        }
+        33% {
+            transform: translateX(30px) translateY(-15px) skew(-10deg);
+        }
+        66% {
+            transform: translateX(-25px) translateY(20px) skew(10deg);
+        }
+    }
+
+    /* 中央区域装饰 */
+    .center-decoration-1 {
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 75px;
+        background: rgba(100, 181, 246, 0.02);
+        clip-path: polygon(0% 0%, 100% 0%, 85% 50%, 100% 100%, 0% 100%, 15% 50%);
+        z-index: -1;
+        animation: wave-motion 16s ease-in-out infinite;
+    }
+
+    .center-decoration-2 {
+        position: fixed;
+        top: 25%;
+        left: 45%;
+        width: 95px;
+        height: 95px;
+        background: rgba(255, 183, 77, 0.03);
+        border-radius: 50%;
+        border: 4px solid rgba(208, 46, 144, 0.02);
+        z-index: -1;
+        animation: morph-enhanced 20s ease-in-out infinite;
+    }
+
+    /* 角落增强装饰 */
+    .corner-decoration-1 {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 60px;
+        height: 120px;
+        background: rgba(208, 46, 144, 0.03);
+        clip-path: polygon(0% 0%, 100% 25%, 100% 75%, 0% 100%);
+        z-index: -1;
+        animation: pulse-enhanced 14s ease-in-out infinite;
+    }
+
+    .corner-decoration-2 {
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+        width: 0;
+        height: 0;
+        border-left: 40px solid rgba(100, 181, 246, 0.04);
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        z-index: -1;
+        animation: drift-massive 12s ease-in-out infinite;
+    }
+
+    .corner-decoration-3 {
+        position: fixed;
+        top: 5%;
+        right: 35%;
+        width: 80px;
+        height: 40px;
+        background: rgba(255, 183, 77, 0.04);
+        transform: rotate(-15deg);
+        border-radius: 20px;
+        z-index: -1;
+        animation: wave-motion 18s ease-in-out infinite reverse;
+    }
+
+    .corner-decoration-4 {
+        position: fixed;
+        bottom: 5%;
+        left: 30%;
+        width: 75px;
+        height: 75px;
+        background: rgba(208, 46, 144, 0.04);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        transform: rotate(45deg);
+        z-index: -1;
+        animation: rotate-large 15s linear infinite;
+    }
+
+    /* 按钮容器样式 */
     .btns {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-        max-width: 400px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(auto-fill, 1fr);
+        gap: 10px;
+        margin-top: 40px;
     }
 
+    /* 下载按钮样式 - 简洁设计 */
     .btn {
-        padding: 5px 7px;
-        font-size: 10px;
-        min-width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px 10px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #ffffff;
+        text-decoration: none;
+        background: linear-gradient(135deg, #d02e90 0%, #ff6b9d 100%);
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(208, 46, 144, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
         height: 28px;
     }
 
-    .btn-icon {
-        font-size: 9px;
-        margin-right: 1px;
+    /* 响应式设计 */
+    @media (max-width: 1200px) {
+        .btns {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 800px;
+        }
     }
 
-    .btn-text {
-        font-size: 10px;
+    @media (max-width: 768px) {
+        .btns {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 6px 8px;
+            font-size: 10px;
+            min-width: 70px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .btns {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            max-width: 400px;
+        }
+
+        .btn {
+            padding: 5px 7px;
+            font-size: 10px;
+            min-width: 60px;
+            height: 28px;
+        }
     }
 }
