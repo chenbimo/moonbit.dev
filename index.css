@@ -1204,8 +1204,8 @@ body .corner-decoration-4 {
 /* 按钮容器样式 */
 .btns {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
     margin: 30px auto 0;
     max-width: 1400px;
     padding: 0 20px;
@@ -1218,27 +1218,29 @@ body .corner-decoration-4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: 6px 10px;
+    font-size: 11px;
     font-weight: 500;
     color: #ffffff;
     text-decoration: none;
     background: linear-gradient(135deg, #d02e90 0%, #ff6b9d 100%);
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(208, 46, 144, 0.25);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(208, 46, 144, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 90px;
-    height: 36px;
+    min-width: 80px;
+    height: 32px;
 }
 
 /* 确保按钮容器居中显示 */
 .level-1 .btns {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
     margin: 30px auto 0;
+    max-width: 1400px;
+    padding: 0 20px;
     justify-items: center;
     align-items: center;
 }
@@ -1258,13 +1260,13 @@ body .corner-decoration-4 {
 
 /* 按钮内部元素样式 */
 .btn-icon {
-    font-size: 11px;
-    margin-right: 3px;
+    font-size: 10px;
+    margin-right: 2px;
 }
 
 .btn-text {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* 不同按钮的样式变化 */
@@ -1389,50 +1391,58 @@ body .corner-decoration-4 {
 }
 
 /* 响应式设计 */
+@media (max-width: 1200px) {
+    .btns {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        max-width: 800px;
+    }
+}
+
 @media (max-width: 768px) {
     .btns {
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        gap: 10px;
         max-width: 600px;
     }
 
     .btn {
-        padding: 8px 10px;
-        font-size: 11px;
-        min-width: 80px;
-        max-width: 120px;
+        padding: 6px 8px;
+        font-size: 10px;
+        min-width: 70px;
+        height: 30px;
     }
 
     .btn-icon {
-        font-size: 10px;
+        font-size: 9px;
         margin-right: 2px;
     }
 
     .btn-text {
-        font-size: 11px;
+        font-size: 10px;
     }
 }
 
 @media (max-width: 480px) {
     .btns {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 8px;
         max-width: 400px;
     }
 
     .btn {
-        padding: 7px 9px;
-        font-size: 11px;
-        min-width: 70px;
-        max-width: 100px;
+        padding: 5px 7px;
+        font-size: 10px;
+        min-width: 60px;
+        height: 28px;
     }
 
     .btn-icon {
-        font-size: 10px;
-        margin-right: 2px;
+        font-size: 9px;
+        margin-right: 1px;
     }
 
     .btn-text {
-        font-size: 11px;
+        font-size: 10px;
     }
 }
