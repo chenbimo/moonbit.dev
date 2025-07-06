@@ -1260,14 +1260,681 @@ body {
     }
 }
 
-/* 动画 */
-@keyframes fadeIn {
+/* ========================= Level-4 开发路线区域 ========================= */
+.level-4 {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%);
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+
+    /* Shapes 背景层 */
+    .shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        max-width: 1200px;
+    }
+}
+
+/* Level-4 装饰形状 */
+.roadmap-decoration-1 {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(208, 46, 144, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: roadmapFloat1 6s ease-in-out infinite;
+}
+
+.roadmap-decoration-2 {
+    position: absolute;
+    bottom: 15%;
+    right: 8%;
+    width: 150px;
+    height: 150px;
+    background: conic-gradient(from 0deg, rgba(59, 130, 246, 0.4), rgba(168, 85, 247, 0.4), rgba(208, 46, 144, 0.4));
+    border-radius: 50%;
+    animation: roadmapSpin 8s linear infinite;
+}
+
+.roadmap-glow-1 {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 60%);
+    border-radius: 50%;
+    animation: roadmapPulse 4s ease-in-out infinite;
+}
+
+.roadmap-glow-2 {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 65%);
+    border-radius: 50%;
+    animation: roadmapFloat2 5s ease-in-out infinite reverse;
+}
+
+.roadmap-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.8), transparent), radial-gradient(2px 2px at 40px 70px, rgba(59, 130, 246, 0.8), transparent), radial-gradient(1px 1px at 90px 40px, rgba(168, 85, 247, 0.8), transparent), radial-gradient(1px 1px at 130px 80px, rgba(208, 46, 144, 0.8), transparent), radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.6), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: roadmapStars 20s linear infinite;
+}
+
+.roadmap-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    margin: -400px 0 0 -400px;
+    border: 2px solid rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    animation: roadmapOrbit 15s linear infinite;
+}
+
+/* 路线头部 */
+.roadmap-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.roadmap-header .title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #d02e90, #3b82f6, #a855f7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(208, 46, 144, 0.3);
+}
+
+.roadmap-header .subtitle {
+    font-size: 1.3rem;
+    color: #94a3b8;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* 时间轴容器 */
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* 主时间轴线 */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.8) 0%, rgba(168, 85, 247, 0.8) 50%, rgba(208, 46, 144, 0.8) 100%);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* 里程碑项目 */
+.milestone-item {
+    position: relative;
+    margin-bottom: 100px;
+    opacity: 0;
+    animation: milestoneSlideIn 1s ease-out forwards;
+}
+
+.milestone-item:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+.milestone-item:nth-child(odd) {
+    animation-delay: 0.4s;
+}
+
+/* 里程碑节点 */
+.milestone-node {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    width: 80px;
+    height: 80px;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.node-inner {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e293b, #334155);
+    border: 4px solid #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.node-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 1;
+    animation: nodeGlow 2s ease-in-out infinite alternate;
+}
+
+/* 节点状态样式 */
+.milestone-item.completed .node-inner {
+    border-color: #10b981;
+    background: linear-gradient(135deg, #065f46, #10b981);
+}
+
+.milestone-item.completed .node-glow {
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 70%);
+}
+
+.milestone-item.current .node-inner {
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, #92400e, #f59e0b);
+    animation: currentNodePulse 1.5s ease-in-out infinite;
+}
+
+.milestone-item.current .node-glow {
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.5) 0%, transparent 70%);
+}
+
+.milestone-item.future .node-inner {
+    border-color: #6b7280;
+    background: linear-gradient(135deg, #374151, #6b7280);
+}
+
+.milestone-item.future-vision .node-inner {
+    border-color: #a855f7;
+    background: linear-gradient(135deg, #581c87, #a855f7);
+    animation: visionNodeSpin 3s linear infinite;
+}
+
+.milestone-item.future-vision .node-glow {
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, transparent 70%);
+}
+
+/* 里程碑内容 */
+.milestone-content {
+    width: 45%;
+    padding: 30px;
+}
+
+.milestone-content.left {
+    margin-right: 55%;
+    text-align: right;
+}
+
+.milestone-content.right {
+    margin-left: 55%;
+    text-align: left;
+}
+
+.milestone-content.center {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    padding-top: 100px;
+}
+
+/* 里程碑卡片 */
+.milestone-card {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.milestone-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #a855f7, #d02e90);
+}
+
+.milestone-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+}
+
+.milestone-card.vision {
+    background: rgba(88, 28, 135, 0.2);
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+.milestone-card.vision::before {
+    background: linear-gradient(90deg, #a855f7, #d02e90, #3b82f6);
+}
+
+/* 卡片头部 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.card-header .date {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-weight: 500;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* 卡片内容 */
+.card-body {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.card-body p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* 特性列表 */
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.feature {
+    background: rgba(59, 130, 246, 0.2);
+    color: #93c5fd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.vision-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.vision-feature {
+    background: rgba(168, 85, 247, 0.2);
+    color: #c4b5fd;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    text-align: center;
+}
+
+/* 成就徽章 */
+.achievement-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.achievement-badge:not(.current):not(.future) {
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.achievement-badge.current {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+.achievement-badge.future {
+    background: rgba(168, 85, 247, 0.2);
+    color: #c4b5fd;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+/* 路线底部 */
+.roadmap-footer {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.progress-section {
+    margin-bottom: 50px;
+}
+
+.progress-section h4 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 12px;
+    background: rgba(51, 65, 85, 0.6);
+    border-radius: 6px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #3b82f6, #a855f7);
+    border-radius: 6px;
+    transition: width 2s ease-out;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    animation: progressShine 2s linear infinite;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.community-section h4 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.community-section p {
+    color: #94a3b8;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.community-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.community-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 25px;
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.community-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+}
+
+.community-btn .icon {
+    font-size: 1.2rem;
+}
+
+/* Level-4 动画 */
+@keyframes roadmapFloat1 {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes roadmapFloat2 {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.1);
+    }
+}
+
+@keyframes roadmapSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes roadmapPulse {
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes roadmapStars {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(200px);
+    }
+}
+
+@keyframes roadmapOrbit {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes milestoneSlideIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes nodeGlow {
+    from {
+        opacity: 0.6;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes currentNodePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes visionNodeSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes badgePulse {
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-20px);
+    }
+    100% {
+        transform: translateX(400px);
+    }
+}
+
+/* Level-4 响应式 */
+@media (max-width: 768px) {
+    .level-4 {
+        padding: 60px 0;
+    }
+
+    .roadmap-header .title {
+        font-size: 2.5rem;
+    }
+
+    .roadmap-header .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .timeline-line {
+        left: 30px;
+        transform: none;
+    }
+
+    .milestone-node {
+        left: 30px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+    }
+
+    .node-inner {
+        font-size: 1rem;
+    }
+
+    .milestone-content {
+        width: calc(100% - 80px);
+        margin-left: 80px !important;
+        margin-right: 0 !important;
+        text-align: left !important;
+        padding: 20px;
+    }
+
+    .milestone-content.center {
+        width: 100%;
+        margin-left: 0 !important;
+        padding-top: 80px;
+    }
+
+    .milestone-card {
+        padding: 20px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .card-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .vision-features {
+        grid-template-columns: 1fr;
+    }
+
+    .community-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .community-btn {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
     }
 }
