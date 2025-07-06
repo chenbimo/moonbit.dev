@@ -1429,10 +1429,6 @@ body {
 }
 .milestone-item:nth-child(6) {
     animation-delay: 0.6s;
-    grid-column: 1 / -1; /* 跨所有列 */
-    justify-self: center;
-    max-width: 400px;
-    margin-top: 30px; /* 与网格间距保持一致 */
 }
 
 /* 里程碑节点 */
