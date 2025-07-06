@@ -237,6 +237,276 @@
                 </div>
             </div>
         </div>
+
+        <!-- Level-2 下载指南区域 -->
+        <div class="level-2">
+            <div class="shapes">
+                <!-- Level-2 专用装饰形状 -->
+                <div class="download-decoration-1"></div>
+                <div class="download-decoration-2"></div>
+                <div class="download-glow-1"></div>
+                <div class="download-glow-2"></div>
+                <div class="download-triangle"></div>
+                <div class="download-circle"></div>
+            </div>
+
+            <div class="wrapper">
+                <div class="download-header">
+                    <h2 class="title">下载 MoonBit</h2>
+                    <p class="subtitle">快速开始您的 MoonBit 开发之旅</p>
+                </div>
+
+                <!-- Tab 切换器 -->
+                <div class="tab-switcher">
+                    <div class="tab-btn active" data-tab="vscode-plugin">
+                        <span class="icon">🔧</span>
+                        安装扩展+编译器
+                    </div>
+                    <div class="tab-btn" data-tab="cli-only">
+                        <span class="icon">⚡</span>
+                        仅安装编译器
+                    </div>
+                </div>
+
+                <!-- Tab 内容 -->
+                <div class="tab-content">
+                    <!-- VS Code 插件 + 编译器安装 -->
+                    <div class="tab-panel active" id="vscode-plugin">
+                        <div class="steps-grid">
+                            <!-- 第一行：安装基础环境 -->
+                            <div class="step-box">
+                                <div class="step-header">
+                                    <div class="step-number">1</div>
+                                    <h3>安装 VS Code</h3>
+                                </div>
+                                <div class="step-image">
+                                    <div class="icon-placeholder">💻</div>
+                                </div>
+                                <div class="step-text">
+                                    <p>下载并安装最新版本的 Visual Studio Code</p>
+                                    <a href="https://code.visualstudio.com/" target="_blank" class="download-link">官方下载</a>
+                                </div>
+                            </div>
+
+                            <div class="step-box">
+                                <div class="step-header">
+                                    <div class="step-number">2</div>
+                                    <h3>安装 MoonBit 扩展</h3>
+                                </div>
+                                <div class="step-image">
+                                    <div class="icon-placeholder">🔧</div>
+                                </div>
+                                <div class="step-text">
+                                    <p>在 VS Code 中搜索"MoonBit"并安装扩展</p>
+                                    <div class="code-snippet">
+                                        <span>搜索: MoonBit</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-box">
+                                <div class="step-header">
+                                    <div class="step-number">3</div>
+                                    <h3>安装工具链</h3>
+                                </div>
+                                <div class="step-image">
+                                    <div class="icon-placeholder">⚡</div>
+                                </div>
+                                <div class="step-text">
+                                    <p>使用命令面板安装工具链</p>
+                                    <div class="code-snippet">
+                                        <kbd>Ctrl+Shift+P</kbd>
+                                        <span>MoonBit:install latest moonbit toolchain</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 第二行：配置和开始 -->
+                            <div class="step-box">
+                                <div class="step-header">
+                                    <div class="step-number">4</div>
+                                    <h3>重启 VS Code</h3>
+                                </div>
+                                <div class="step-image">
+                                    <div class="icon-placeholder">🔄</div>
+                                </div>
+                                <div class="step-text">
+                                    <p>重启 VS Code 使环境变量生效</p>
+                                    <div class="code-snippet">
+                                        <span>File → Restart</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-box">
+                                <div class="step-header">
+                                    <div class="step-number">5</div>
+                                    <h3>创建新项目</h3>
+                                </div>
+                                <div class="step-image">
+                                    <div class="icon-placeholder">📁</div>
+                                </div>
+                                <div class="step-text">
+                                    <p>在终端中创建新项目</p>
+                                    <div class="code-snippet">
+                                        <code>moon new hello</code>
+                                        <code>code hello</code>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-box">
+                                <div class="step-header">
+                                    <div class="step-number">6</div>
+                                    <h3>运行代码</h3>
+                                </div>
+                                <div class="step-image">
+                                    <div class="icon-placeholder">🚀</div>
+                                </div>
+                                <div class="step-text">
+                                    <p>运行你的第一个 MoonBit 程序</p>
+                                    <div class="code-snippet">
+                                        <code>moon run src/main</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CLI 工具安装 -->
+                    <div class="tab-panel" id="cli-only">
+                        <div class="prerequisite-banner">
+                            <div class="warning-icon">⚠️</div>
+                            <div class="warning-content"><strong>前置要求：</strong>请先安装 <a href="https://git-scm.com/downloads" target="_blank">Git</a></div>
+                        </div>
+
+                        <div class="platform-selector">
+                            <div class="platform-tab active" data-platform="unix"><span class="icon">🐧</span> Linux & macOS</div>
+                            <div class="platform-tab" data-platform="windows"><span class="icon">🪟</span> Windows</div>
+                        </div>
+
+                        <div class="steps-grid">
+                            <!-- Unix 平台 -->
+                            <div class="platform-panel active" id="unix">
+                                <div class="step-box large">
+                                    <div class="step-header">
+                                        <div class="step-number">1</div>
+                                        <h3>一键安装</h3>
+                                    </div>
+                                    <div class="step-image">
+                                        <div class="icon-placeholder">🔧</div>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>在终端中执行安装命令</p>
+                                        <div class="code-snippet">
+                                            <code>curl -fsSL https://cli.moonbitlang.cn/install/unix.sh | bash</code>
+                                            <button class="copy-btn" onclick="copyToClipboard('curl -fsSL https://cli.moonbitlang.cn/install/unix.sh | bash')">📋</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-box large">
+                                    <div class="step-header">
+                                        <div class="step-number">2</div>
+                                        <h3>验证安装</h3>
+                                    </div>
+                                    <div class="step-image">
+                                        <div class="icon-placeholder">✅</div>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>检查工具链是否正确安装</p>
+                                        <div class="code-snippet">
+                                            <code>moon help</code>
+                                        </div>
+                                        <p class="tip-text">看到帮助信息即安装成功</p>
+                                    </div>
+                                </div>
+
+                                <div class="step-box large">
+                                    <div class="step-header">
+                                        <div class="step-number">3</div>
+                                        <h3>创建项目</h3>
+                                    </div>
+                                    <div class="step-image">
+                                        <div class="icon-placeholder">🚀</div>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>创建并运行新项目</p>
+                                        <div class="code-snippet">
+                                            <code>moon new my-project</code>
+                                            <code>cd my-project</code>
+                                            <code>moon run src/main</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Windows 平台 -->
+                            <div class="platform-panel" id="windows">
+                                <div class="step-box large">
+                                    <div class="step-header">
+                                        <div class="step-number">1</div>
+                                        <h3>PowerShell 安装</h3>
+                                    </div>
+                                    <div class="step-image">
+                                        <div class="icon-placeholder">🪟</div>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>使用 PowerShell 安装工具链</p>
+                                        <div class="code-snippet">
+                                            <a href="https://www.moonbitlang.cn/download/" target="_blank">访问官方下载页面</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-box large">
+                                    <div class="step-header">
+                                        <div class="step-number">2</div>
+                                        <h3>验证安装</h3>
+                                    </div>
+                                    <div class="step-image">
+                                        <div class="icon-placeholder">✅</div>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>检查工具链是否正确安装</p>
+                                        <div class="code-snippet">
+                                            <code>moon help</code>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="step-box large">
+                                    <div class="step-header">
+                                        <div class="step-number">3</div>
+                                        <h3>创建项目</h3>
+                                    </div>
+                                    <div class="step-image">
+                                        <div class="icon-placeholder">🚀</div>
+                                    </div>
+                                    <div class="step-text">
+                                        <p>创建并运行新项目</p>
+                                        <div class="code-snippet">
+                                            <code>moon new my-project</code>
+                                            <code>cd my-project</code>
+                                            <code>moon run src/main</code>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-icon">💡</div>
+                    <div class="help-content">
+                        <h4>需要帮助？</h4>
+                        <p>如果遇到任何问题，请在 <a href="https://github.com/moonbitlang" target="_blank">GitHub</a> 或论坛上进行反馈</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="index.js"></script>
     </body>
 </html>
