@@ -1357,25 +1357,21 @@ body {
 /* 路线头部 */
 .roadmap-header {
     text-align: center;
-    margin-bottom: 80px;
-}
+    margin-bottom: 50px;
 
-.roadmap-header .title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #d02e90, #3b82f6, #a855f7);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(208, 46, 144, 0.3);
-}
+    .title {
+        font-size: 36px;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 12px;
+    }
 
-.roadmap-header .subtitle {
-    font-size: 1.3rem;
-    color: #94a3b8;
-    font-weight: 300;
-    letter-spacing: 1px;
+    .subtitle {
+        font-size: 18px;
+        color: #94a3b8;
+        margin: 0;
+    }
 }
 
 /* 时间轴容器 */
@@ -1892,11 +1888,11 @@ body {
     }
 
     .roadmap-header .title {
-        font-size: 2.5rem;
+        font-size: 28px;
     }
 
     .roadmap-header .subtitle {
-        font-size: 1.1rem;
+        font-size: 16px;
     }
 
     .roadmap-grid {
