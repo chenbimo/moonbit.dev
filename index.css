@@ -666,6 +666,29 @@ body {
         }
     }
 
+    /* 代码图片样式 */
+    .code-image {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(71, 85, 105, 0.3);
+        border-radius: 6px;
+        padding: 12px;
+        margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+    .help-space {
+        height: 30px;
+    }
     /* 帮助区域 */
     .help-section {
         display: flex;
@@ -675,7 +698,6 @@ body {
         background: rgba(37, 99, 235, 0.1);
         border: 1px solid rgba(37, 99, 235, 0.2);
         border-radius: 10px;
-        margin-top: 30px;
 
         .help-icon {
             font-size: 24px;
@@ -777,6 +799,7 @@ body {
         }
 
         .step-text {
+            padding-right: 50px;
         }
 
         .platform-selector {

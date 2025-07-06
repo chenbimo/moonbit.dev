@@ -267,7 +267,7 @@
                         仅安装编译器
                     </div>
                 </div>
-
+                <div class="help-space"></div>
                 <!-- Tab 内容 -->
                 <div class="tab-content">
                     <!-- VS Code 插件 + 编译器安装 -->
@@ -311,10 +311,9 @@
                                     <div class="icon-placeholder">⚡</div>
                                 </div>
                                 <div class="step-text">
-                                    <p>使用命令面板安装工具链</p>
-                                    <div class="code-snippet">
-                                        <kbd>Ctrl+Shift+P</kbd>
-                                        <span>MoonBit:install latest moonbit toolchain</span>
+                                    <p>安装插件后，点击弹出框的 Yes 按钮</p>
+                                    <div class="code-image">
+                                        <img src="./images/1.png" alt="工具链安装步骤" />
                                     </div>
                                 </div>
                             </div>
@@ -375,7 +374,7 @@
                     <div class="tab-panel" id="cli-only">
                         <div class="prerequisite-banner">
                             <div class="warning-icon">⚠️</div>
-                            <div class="warning-content"><strong>前置要求：</strong>请先安装 <a href="https://git-scm.com/downloads" target="_blank">Git</a></div>
+                            <div class="warning-content"><strong>前置要求：</strong>请先安装 MoonBit工具链需要<a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">git</a>以正确工作, 请在安装MoonBit工具链之前, 确保已经<a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">安装git</a></div>
                         </div>
 
                         <div class="platform-selector">
@@ -412,11 +411,10 @@
                                         <div class="icon-placeholder">✅</div>
                                     </div>
                                     <div class="step-text">
-                                        <p>检查工具链是否正确安装</p>
+                                        <p>检查工具链是否正确安装，看到帮助信息即安装成功。</p>
                                         <div class="code-snippet">
                                             <code>moon help</code>
                                         </div>
-                                        <p class="tip-text">看到帮助信息即安装成功</p>
                                     </div>
                                 </div>
 
@@ -454,7 +452,8 @@
                                     <div class="step-text">
                                         <p>使用 PowerShell 安装工具链</p>
                                         <div class="code-snippet">
-                                            <a href="https://www.moonbitlang.cn/download/" target="_blank">访问官方下载页面</a>
+                                            <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser; irm https://cli.moonbitlang.cn/install/powershell.ps1 | iex</code>
+                                            <button class="copy-btn" onclick="copyToClipboard('Set-ExecutionPolicy RemoteSigned -Scope CurrentUser; irm https://cli.moonbitlang.cn/install/powershell.ps1 | iex')">📋</button>
                                         </div>
                                     </div>
                                 </div>
@@ -468,11 +467,10 @@
                                         <div class="icon-placeholder">✅</div>
                                     </div>
                                     <div class="step-text">
-                                        <p>检查工具链是否正确安装</p>
+                                        <p>检查工具链是否正确安装，看到帮助信息即安装成功。</p>
                                         <div class="code-snippet">
                                             <code>moon help</code>
                                         </div>
-                                        <p class="tip-text">看到帮助信息即安装成功</p>
                                     </div>
                                 </div>
 
@@ -497,12 +495,12 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="help-space"></div>
                 <div class="help-section">
                     <div class="help-icon">💡</div>
                     <div class="help-content">
                         <h4>需要帮助？</h4>
-                        <p>如果遇到任何问题，请在 <a href="https://github.com/moonbitlang" target="_blank">GitHub</a> 或论坛上进行反馈</p>
+                        <p>如果遇到任何问题，请在 <a href="https://github.com/moonbitlang" target="_blank">GitHub</a> 或 <a href="https://github.com/moonbitlang" target="_blank">官方论坛</a>上进行反馈</p>
                     </div>
                 </div>
             </div>
