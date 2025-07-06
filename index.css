@@ -550,6 +550,8 @@ body {
         flex-direction: column;
         margin-top: 8px;
         padding-right: 60px;
+        width: 100%;
+        box-sizing: border-box;
 
         p {
             font-size: 14px;
@@ -575,13 +577,15 @@ body {
             }
 
             &.download-link {
-                display: inline-block;
-                padding: 6px 12px;
+                display: block;
+                width: 100%;
+                padding: 8px 12px;
                 background: rgba(125, 211, 252, 0.1);
                 border: 1px solid rgba(125, 211, 252, 0.3);
                 border-radius: 6px;
                 text-align: center;
                 transition: all 0.3s ease;
+                box-sizing: border-box;
 
                 &:hover {
                     background: rgba(125, 211, 252, 0.2);
@@ -607,6 +611,8 @@ body {
         font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
         position: relative;
         margin-top: auto;
+        width: 100%;
+        box-sizing: border-box;
 
         code {
             color: #e2e8f0;
