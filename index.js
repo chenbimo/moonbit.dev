@@ -18,24 +18,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 平台选择 tab 功能
-    const platformTabs = document.querySelectorAll('.platform-tab');
-    const platformPanels = document.querySelectorAll('.platform-panel');
+    // 平台选择 tab 功能 - 改进版本，支持多个独立的平台选择器
+    const platformSelectors = document.querySelectorAll('.platform-selector');
 
-    platformTabs.forEach((tab) => {
-        tab.addEventListener('click', function () {
-            const targetPlatform = this.getAttribute('data-platform');
+    platformSelectors.forEach((selector) => {
+        const platformTabs = selector.querySelectorAll('.platform-tab');
+        const parentContainer = selector.parentNode;
+        const platformPanels = parentContainer.querySelectorAll('.platform-panel');
 
-            // 移除所有活动状态
-            platformTabs.forEach((t) => t.classList.remove('active'));
-            platformPanels.forEach((p) => p.classList.remove('active'));
+        platformTabs.forEach((tab) => {
+            tab.addEventListener('click', function () {
+                const targetPlatform = this.getAttribute('data-platform');
 
-            // 添加活动状态
-            this.classList.add('active');
-            const targetPanel = document.getElementById(targetPlatform);
-            if (targetPanel) {
-                targetPanel.classList.add('active');
-            }
+                // 只在当前选择器组内移除活动状态
+                platformTabs.forEach((t) => t.classList.remove('active'));
+                platformPanels.forEach((p) => p.classList.remove('active'));
+
+                // 添加活动状态
+                this.classList.add('active');
+                const targetPanel = document.getElementById(targetPlatform);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            });
         });
     });
 
