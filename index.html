@@ -493,6 +493,132 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 验证二进制文件部分 -->
+                        <div class="binary-verification-section">
+                            <h3 class="section-title">验证二进制文件</h3>
+                            <p class="section-description">我们提供含有下载二进制文件以及压缩包的SHA校验和的 <code>.sha256</code> 文件。</p>
+                            
+                            <div class="platform-selector">
+                                <div class="platform-tab active" data-platform="binary-unix"><span class="icon">🐧</span> Linux & macOS</div>
+                                <div class="platform-tab" data-platform="binary-windows"><span class="icon">🪟</span> Windows</div>
+                            </div>
+
+                            <!-- Unix 平台二进制验证 -->
+                            <div class="platform-panel active" id="binary-unix">
+                                <div class="steps-grid">
+                                    <div class="step-box large">
+                                        <div class="step-header">
+                                            <div class="step-number">1</div>
+                                            <h3>下载 SHA 校验文件</h3>
+                                        </div>
+                                        <div class="step-image">
+                                            <div class="icon-placeholder">📥</div>
+                                        </div>
+                                        <div class="step-text">
+                                            <p>使用 curl 下载 .sha256 文件</p>
+                                            <div class="code-snippet">
+                                                <code>curl -O -L https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-aarch64.sha256</code>
+                                                <code>curl -O -L https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-aarch64.tar.gz.sha256</code>
+                                                <button class="copy-btn" onclick="copyToClipboard('curl -O -L https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-aarch64.sha256')">📋</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-box large">
+                                        <div class="step-header">
+                                            <div class="step-number">2</div>
+                                            <h3>验证文件完整性</h3>
+                                        </div>
+                                        <div class="step-image">
+                                            <div class="icon-placeholder">🔍</div>
+                                        </div>
+                                        <div class="step-text">
+                                            <p>使用 sha256sum 验证下载的文件</p>
+                                            <div class="code-snippet">
+                                                <code>curl https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-aarch64.sha256 | sha256sum -c -</code>
+                                                <button class="copy-btn" onclick="copyToClipboard('curl https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-aarch64.sha256 | sha256sum -c -')">📋</button>
+                                            </div>
+                                            <p class="tip-text">看到 "OK" 表示文件完整性验证通过</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-box large">
+                                        <div class="step-header">
+                                            <div class="step-number">3</div>
+                                            <h3>选择平台版本</h3>
+                                        </div>
+                                        <div class="step-image">
+                                            <div class="icon-placeholder">🔧</div>
+                                        </div>
+                                        <div class="step-text">
+                                            <p>根据你的系统选择对应的版本</p>
+                                            <div class="platform-links">
+                                                <a href="https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-aarch64.tar.gz" target="_blank" class="download-link">Apple Silicon macOS</a>
+                                                <a href="https://cli.moonbitlang.cn/binaries/latest/moonbit-darwin-x86_64.tar.gz" target="_blank" class="download-link">Intel macOS</a>
+                                                <a href="https://cli.moonbitlang.cn/binaries/latest/moonbit-linux-x86_64.tar.gz" target="_blank" class="download-link">x86-64 Linux</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Windows 平台二进制验证 -->
+                            <div class="platform-panel" id="binary-windows">
+                                <div class="steps-grid">
+                                    <div class="step-box large">
+                                        <div class="step-header">
+                                            <div class="step-number">1</div>
+                                            <h3>下载 SHA 校验文件</h3>
+                                        </div>
+                                        <div class="step-image">
+                                            <div class="icon-placeholder">📥</div>
+                                        </div>
+                                        <div class="step-text">
+                                            <p>使用 PowerShell 下载 .sha256 文件</p>
+                                            <div class="code-snippet">
+                                                <code>Invoke-WebRequest -Uri "https://cli.moonbitlang.cn/binaries/latest/moonbit-windows-x86_64.sha256" -OutFile "moonbit-windows-x86_64.sha256"</code>
+                                                <button class="copy-btn" onclick="copyToClipboard('Invoke-WebRequest -Uri &quot;https://cli.moonbitlang.cn/binaries/latest/moonbit-windows-x86_64.sha256&quot; -OutFile &quot;moonbit-windows-x86_64.sha256&quot;')">📋</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-box large">
+                                        <div class="step-header">
+                                            <div class="step-number">2</div>
+                                            <h3>验证文件完整性</h3>
+                                        </div>
+                                        <div class="step-image">
+                                            <div class="icon-placeholder">🔍</div>
+                                        </div>
+                                        <div class="step-text">
+                                            <p>使用 PowerShell 验证下载的文件</p>
+                                            <div class="code-snippet">
+                                                <code>Get-FileHash -Path "moonbit-windows-x86_64.exe" -Algorithm SHA256</code>
+                                                <button class="copy-btn" onclick="copyToClipboard('Get-FileHash -Path &quot;moonbit-windows-x86_64.exe&quot; -Algorithm SHA256')">📋</button>
+                                            </div>
+                                            <p class="tip-text">比较输出的哈希值与 .sha256 文件中的值</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-box large">
+                                        <div class="step-header">
+                                            <div class="step-number">3</div>
+                                            <h3>下载 Windows 版本</h3>
+                                        </div>
+                                        <div class="step-image">
+                                            <div class="icon-placeholder">🪟</div>
+                                        </div>
+                                        <div class="step-text">
+                                            <p>下载适用于 Windows 的二进制文件</p>
+                                            <div class="platform-links">
+                                                <a href="https://cli.moonbitlang.cn/binaries/latest/moonbit-windows-x86_64.zip" target="_blank" class="download-link">Windows x86-64</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="help-space"></div>
