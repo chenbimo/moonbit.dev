@@ -2408,14 +2408,14 @@ body {
             .article-platforms {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 3px;
+                gap: 10px;
                 justify-content: flex-end;
 
                 .platform-tag {
-                    font-size: 0.65rem;
+                    font-size: 12px;
                     color: #93c5fd;
                     background: rgba(59, 130, 246, 0.15);
-                    padding: 2px 5px;
+                    padding: 2px 8px;
                     border-radius: 5px;
                     border: 1px solid rgba(59, 130, 246, 0.3);
                     text-decoration: none;
