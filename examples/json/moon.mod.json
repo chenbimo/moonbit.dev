@@ -1,0 +1,11 @@
+{
+    "name": "chensuiyi/fnMap",
+    "version": "0.1.0",
+    "readme": "README.md",
+    "repository": "",
+    "license": "Apache-2.0",
+    "keywords": ["tree-traversal", "wasm", "vscode-extension"],
+    "description": "MoonBit WASM implementation of fnMap tree traversal utilities",
+    "source": "",
+    "warn-list": "-A"
+}

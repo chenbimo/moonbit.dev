@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+target
 esdata
 data
 .npmrc
