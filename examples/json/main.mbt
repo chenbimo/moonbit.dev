@@ -1,15 +1,9 @@
 ///|
-///
-///
-let jsonValue = JsonValue::Object({ "name": "Alice", "age": 30 })
-
-///|
-pub fn json_parse(data : JsonValue) -> Int {
-  let json_value = @json.stringify(data)
-  json_value
+pub fn plus(x : Int, y : Int) -> Int {
+  x + y
 }
 
 ///|
 fn main {
-  println(json_parse("{\"key\": \"value\"}"))
+  println("加法函数")
 }
