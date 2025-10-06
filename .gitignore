@@ -29,6 +29,7 @@ static
 release
 .temp
 prelease
+examples
 
 # Editor directories and files
 .vscode/*
