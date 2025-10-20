@@ -15,6 +15,55 @@ const articlesConfig = [
             { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1926311913391912435' },
             { platform: '公众号', url: 'https://mp.weixin.qq.com/s/r6vMnoTkipzwdW6snSlLww' }
         ]
+    },
+    {
+        title: 'MoonBit能给前端开发带来什么好处和实际案例演示',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7527276907274076199' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1928844690473582698' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/2Y7_5_yiwYnu1n09d4mZAA' }
+        ]
+    },
+    {
+        title: '国产之光，把AI融入到语言级别的编程语言-MoonBit',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7533422972741713930' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1934632530339946592' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/uOz-YexUgY_tJXyQjxWGkw' }
+        ]
+    },
+    {
+        title: '改变世界的编程语言MoonBit：背景知识速览',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7543846138359578624' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1945059669740611076' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/FPDr9JzFoGp806pzSDRe-g' },
+            { platform: 'B站', url: 'https://www.bilibili.com/video/BV1LWhCzyE2k/' },
+            { platform: '小红书', url: 'https://www.xiaohongshu.com/discovery/item/68b3eef4000000001d01b25a?source=webshare&xhsshare=pc_web&xsec_token=ABpM5aRzTQ8z1wpvcYCgAlHV5RFzSAIXb0-QkoSeRI11U=&xsec_source=pc_share' },
+            { platform: '抖音', url: 'https://v.douyin.com/oKPnHGtIjP8/' }
+        ]
+    },
+    {
+        title: '改变世界的编程语言MoonBit：项目文件详解',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7546362284786024467' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1947259531282318339' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/Tr7-XOI20OMU5YZ0v7e-Mg' },
+            { platform: 'B站', url: 'https://www.bilibili.com/video/BV1miaizjEM5/' },
+            { platform: '小红书', url: 'https://www.xiaohongshu.com/discovery/item/68bb9e4a000000001c00c3ae?source=webshare&xhsshare=pc_web&xsec_token=ABpKFClECMrnWibFIXJASKnp1rwhEBsQeAe0EAq-lcZqg=&xsec_source=pc_share' },
+            { platform: '抖音', url: 'https://v.douyin.com/V50UeaoA3pM/' }
+        ]
+    },
+    {
+        title: '改变世界的编程语言MoonBit：配置系统介绍(上)',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7558303617419624457' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1959342393682822027' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/DZBJMFutT8um9FX2SxBNHg' },
+            { platform: 'B站', url: 'https://www.bilibili.com/video/BV1ygxvzXEVv/' },
+            { platform: '小红书', url: 'https://www.xiaohongshu.com/discovery/item/68e66fef00000000040122c9?source=webshare&xhsshare=pc_web&xsec_token=ABCn1etDOEs9FW8v_oSNIs3uMDREfoPxLES_U5BUdPTU0=&xsec_source=pc_share' },
+            { platform: '抖音', url: 'https://v.douyin.com/NjfqIKNQJD0/' }
+        ]
     }
 ];
 
