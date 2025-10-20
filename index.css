@@ -922,11 +922,6 @@ body {
             }
 
             .article-item {
-                .article-image {
-                    width: 180px;
-                    height: 180px;
-                }
-
                 .article-content {
                     padding: 18px 20px;
 
@@ -1024,11 +1019,6 @@ body {
                 flex-direction: column;
                 min-height: auto;
 
-                .article-image {
-                    width: 100%;
-                    height: 160px;
-                }
-
                 .article-content {
                     padding: 20px;
 
@@ -1046,12 +1036,6 @@ body {
                         .article-stats {
                             margin-left: 0;
                         }
-                    }
-
-                    .article-description {
-                        font-size: 0.9rem;
-                        -webkit-line-clamp: 3;
-                        line-clamp: 3;
                     }
                 }
             }
@@ -2356,7 +2340,6 @@ body {
         position: relative;
         display: flex;
         flex-direction: column;
-        min-height: 140px;
 
         &:hover {
             transform: translateY(-5px);
@@ -2377,24 +2360,10 @@ body {
             overflow: hidden;
         }
 
-        .article-description {
-            color: #cbd5e1;
-            line-height: 1.4;
-            margin: 0 0 10px 0;
-            font-size: 0.85rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            flex: 1;
-        }
-
         .article-footer {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-top: auto;
 
             .article-date {
                 font-size: 0.75rem;
@@ -2514,17 +2483,11 @@ body {
         }
 
         .article-item {
-            min-height: 120px;
             padding: 14px;
 
             .article-title {
                 font-size: 1.05rem;
                 margin-bottom: 6px;
-            }
-
-            .article-description {
-                font-size: 0.8rem;
-                margin-bottom: 8px;
             }
 
             .article-footer {
@@ -2566,7 +2529,6 @@ body {
         }
 
         .article-item {
-            min-height: 100px;
             padding: 12px;
 
             .article-title {
@@ -2575,14 +2537,6 @@ body {
                 line-height: 1.25;
                 -webkit-line-clamp: 2;
                 line-clamp: 2;
-            }
-
-            .article-description {
-                font-size: 0.8rem;
-                margin-bottom: 6px;
-                line-height: 1.3;
-                -webkit-line-clamp: 3;
-                line-clamp: 3;
             }
 
             .article-footer {
