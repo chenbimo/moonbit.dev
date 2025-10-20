@@ -1,5 +1,72 @@
+// 文章配置
+const articlesConfig = [
+    {
+        title: 'MoonBit助力前端开发，加密&性能两不误，斐波那契测试提高3-4倍',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7524159959479812105' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1925634116163986346' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/V-c_lGjtJ1tW1RoB8icn0w' }
+        ]
+    },
+    {
+        title: '程序员的新玩具，MoonBit(月兔)编程语言科普',
+        links: [
+            { platform: '掘金', url: 'https://juejin.cn/post/7524864401615257626' },
+            { platform: '知乎', url: 'https://zhuanlan.zhihu.com/p/1926311913391912435' },
+            { platform: '公众号', url: 'https://mp.weixin.qq.com/s/r6vMnoTkipzwdW6snSlLww' }
+        ]
+    }
+];
+
+// 渲染文章列表
+function renderArticles() {
+    const articlesGrid = document.querySelector('.articles-grid');
+    if (!articlesGrid) return;
+
+    // 清空现有内容
+    articlesGrid.innerHTML = '';
+
+    // 创建文章行
+    const articleRow = document.createElement('div');
+    articleRow.className = 'article-row';
+
+    // 遍历文章配置生成 HTML
+    articlesConfig.forEach((article) => {
+        const articleItem = document.createElement('div');
+        articleItem.className = 'article-item';
+
+        // 创建标题
+        const title = document.createElement('h3');
+        title.className = 'article-title';
+        title.textContent = article.title;
+
+        // 创建底部链接区域
+        const footer = document.createElement('div');
+        footer.className = 'article-footer';
+
+        // 创建平台链接
+        article.links.forEach((link) => {
+            const linkTag = document.createElement('a');
+            linkTag.href = link.url;
+            linkTag.target = '_blank';
+            linkTag.className = 'platform-tag';
+            linkTag.textContent = link.platform;
+            footer.appendChild(linkTag);
+        });
+
+        articleItem.appendChild(title);
+        articleItem.appendChild(footer);
+        articleRow.appendChild(articleItem);
+    });
+
+    articlesGrid.appendChild(articleRow);
+}
+
 // Tab 切换功能
 document.addEventListener('DOMContentLoaded', function () {
+    // 渲染文章列表
+    renderArticles();
+
     // 主要的 tab 切换功能
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanels = document.querySelectorAll('.tab-panel');
