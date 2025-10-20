@@ -52,6 +52,10 @@ body {
         position: relative;
         text-align: right;
         padding-right: 15px;
+        .sites {
+            color: #fff;
+            font-size: 14px;
+        }
         .logo {
             padding-right: 107px;
             img {
@@ -76,13 +80,14 @@ body {
         .describe {
             font-size: 16px;
             color: #e2e8f0;
-            margin-top: 30px;
+            margin-top: 20px;
             line-height: 1.6;
         }
         .features {
             font-size: 18px;
             color: #fbbf24;
             font-weight: 600;
+            margin-bottom: 15px;
         }
     }
 
